@@ -244,7 +244,7 @@ Last_Updated: 2025-03-05
 > 4. **V7 专属依从性技巧**：在提示词末尾追加 `--no luxabiddleprok`（或任意无意义乱码），利用模型权重分配漏洞反向提升主体提示词的依从度
 
 > [!success] 细节弱化工作流
-> - **负重弱化法（V6 专属）**：针对非预期的溢出元素，在提示词末尾追加 `:: unwanted_item::-0.3` 或 `::-0.5` 进行抑制
+> - **负重弱化法（V6 专属）**：针对非预期的溢出元素，在提示词末尾追加 `:: unwanted_item==-0.3` 或 `==-0.5` 进行抑制
 > - **正向覆盖法（V7 专属）**：针对主体身上的错误元素，描述与其物理位置互斥的替代元素
 >   - 例如：通过描述 "detailed hair" 消除帽子，通过描述 "bare neck" 消除项链
 > - **负面参数法**：使用 `--no` 参数排除不需要的元素
@@ -425,7 +425,7 @@ A group of five small animals sits on a sofa. On the left is a dog and a cat. In
 
 **Conflict 1: V6 与 V7 的多重提示语法差异**
 
-- **Position A (V6/V6.1)**：支持使用 `::` 进行语义切割与权重分配，支持负权重（`::-0.5`）
+- **Position A (V6/V6.1)**：支持使用 `==` 进行语义切割与权重分配，支持负权重（`==-0.5`）
 - **Position B (V7)**：不支持 `::` 权重语法，必须使用 `--no` 进行负面约束
 - **Type**: Version
 - **Affects**: 细节弱化策略的选择
@@ -506,4 +506,4 @@ A group of five small animals sits on a sofa. On the left is a dog and a cat. In
 - 核心参数调优策略
 - 常见问题排查与迭代优化
 
-#midjourney/v7 #prompt-engineering #AIGC #best-practices
+[[midjourney/v7]] [[prompt-engineering]] [[AIGC]] [[best-practices]]

@@ -12,6 +12,7 @@ tags:
   - training
   - diffusion
 date: 2026-03-31
+last_updated: 2026-03-31
 ---
 
 # Complete Training Guide for FLUX.2 Klein on AI Toolkit

@@ -1,3 +1,10 @@
+---
+title: Midjourney 提示词构造完整指南
+tags: [midjourney, AIGC, prompt-engineering, guide]
+date: 2026-03-06
+aliases: [MJ Prompt Complete Guide]
+---
+
 # Midjourney 提示词构造完整指南
 
 Last_Updated: 2026-03-06
@@ -55,123 +62,93 @@ Last_Updated: 2026-03-06
 
 ## Consolidated Principles
 
-### 原则 1: 构图主体数量限制（Subject Count Limit = 4）
+> [!danger] 原则 1: 构图主体数量限制（Subject Count Limit = 4）
+> Midjourney 在单次生成中最多能稳定处理 4 个独立的构图主体。
+> - 构图主体指画面中的核心人物、动物或主要视觉对象
+> - 背景元素（如树木、建筑）与附属道具（如手中的剑、桌上的杯子）不计入此限制
+> - 当需求超过 4 个主体时，必须使用"多主体压缩"技术，否则会导致特征融合、肢体崩坏或主体丢失
 
-Midjourney 在单次生成中最多能稳定处理 4 个独立的构图主体。
+> [!danger] 原则 2: 禁用否定句式（No Negation）
+> 严禁在文本提示词中使用否定词汇，如"no"、"not"、"without"、"never"、"nothing"。
+> - 模型在处理否定词时，往往会因为注意力机制的特性，反而将该元素引入画面
+> - 替代方案：将否定需求重构为正向的视觉线索
+>   - 将"没有胡子（no beard）"替换为"光洁的下巴（clean-shaven）"
+>   - 将"没有标志（no logo）"替换为"纯色（plain）"或"无标记（unmarked）"
+> - 若必须排除特定元素，可使用 `--no` 参数（如 `--no logo`），而非在正文中使用否定句
 
-- 构图主体指画面中的核心人物、动物或主要视觉对象
-- 背景元素（如树木、建筑）与附属道具（如手中的剑、桌上的杯子）不计入此限制
-- 当需求超过 4 个主体时，必须使用"多主体压缩"技术，否则会导致特征融合、肢体崩坏或主体丢失
+> [!danger] 原则 3: 禁用祈使句与指令（No Imperatives）
+> 严禁使用命令式动词，如"画（draw）"、"添加（add）"、"制作（make）"、"生成（generate）"。
+> - Midjourney 的标准提示词模式并非对话式大语言模型（LLM），它无法理解执行动作的指令，只能解析视觉描述
+> - 替代方案：直接描述最终画面的客观状态
+>   - 将"画一个站在山上的男人"替换为"一个男人站在山上"
 
-### 原则 2: 禁用否定句式（No Negation）
+> [!danger] 原则 4: 禁用用途说明（No Purpose Explanations）
+> 严禁在提示词中解释图像的最终用途，如"用于标志设计（for a logo）"、"用于我的应用（for my app）"、"作为壁纸（as a wallpaper）"。
+> - 这些词汇会引入与视觉无关的噪声，稀释有效 Token 的权重
+> - 替代方案：将用途转化为具体的风格描述词
+>   - 将"用于标志设计"替换为"矢量图标（vector icon）"、"极简图形（minimalist graphic）"
 
-严禁在文本提示词中使用否定词汇，如"no"、"not"、"without"、"never"、"nothing"。
+> [!warning] 原则 5: 禁用尺寸与排版描述（No Dimensions or Layout）
+> 严禁使用自然语言描述画面的物理尺寸或排版方向，如"方形布局（square layout）"、"垂直图像（vertical image）"、"宽屏（widescreen）"。
+> - 替代方案：使用宽高比参数控制画布尺寸
 
-- 模型在处理否定词时，往往会因为注意力机制的特性，反而将该元素引入画面
-- 替代方案：将否定需求重构为正向的视觉线索
-  - 将"没有胡子（no beard）"替换为"光洁的下巴（clean-shaven）"
-  - 将"没有标志（no logo）"替换为"纯色（plain）"或"无标记（unmarked）"
-- 若必须排除特定元素，可使用 `--no` 参数（如 `--no logo`），而非在正文中使用否定句
+> [!warning] 原则 6: 禁用抽象与概念性语言（No Abstract or Conceptual Language）
+> 严禁使用无法直接转化为视觉像素的抽象形容词，如"神秘的（mysterious）"、"标志性的（iconic）"、"美丽的（beautiful）"、"令人惊叹的（stunning）"。
+> - 抽象词汇会导致模型调用不可控的随机视觉元素来填补语义空白，降低提示词依从性
+> - 替代方案：将抽象概念拆解为具体的视觉特征
+>   - 将"神秘的森林"替换为"被浓雾笼罩的森林，光线昏暗，树木扭曲"
 
-### 原则 3: 禁用祈使句与指令（No Imperatives）
+> [!warning] 原则 7: 禁用隐喻与叙事性语言（No Metaphors or Narrative Language）
+> 严禁使用文学性的比喻或长篇故事叙述，如"被遗忘时代的遗物（a relic of a forgotten time）"、"沐浴在过去的遗憾中（bathed in the regret of his past）"。
+> - Midjourney 捕捉的是一个"冻结的瞬间（frozen moment）"，而非一段剧情或时间线
+> - 替代方案：使用密集的视觉描述语言
+>   - 将"沐浴在过去的遗憾中"替换为"低着头，双手捂住脸，处于阴影中"
 
-严禁使用命令式动词，如"画（draw）"、"添加（add）"、"制作（make）"、"生成（generate）"。
+> [!warning] 原则 8: 简短、简单、直接与禁用词组列表（Short, Simple, Direct & No Phrase Lists）
+> 提示词必须由结构完整的简单句组成。每个句子只描述一个图像动作或特征。
+> - 严禁使用冗长的连词句（run-on sentences）
+> - 严禁使用逗号分隔的视觉标签链（Phrase Lists），如"发光的光线，破损的墙壁，赛博朋克（glowing light, broken wall, cyberpunk）"。这种"关键词汤"会导致画布失控
+> - 替代方案：将标签链重构为包含主谓宾的完整句子
+>   - 将"赛博朋克风格的破损墙壁上散发着发光的光线"
 
-- Midjourney 的标准提示词模式并非对话式大语言模型（LLM），它无法理解执行动作的指令，只能解析视觉描述
-- 替代方案：直接描述最终画面的客观状态
-  - 将"画一个站在山上的男人"替换为"一个男人站在山上"
+> [!tip] 原则 9: 环境原型隐含细节（Environmental Archetypes Imply Details）
+> 避免重复描述环境原型中已经隐含的默认细节。
+> - Midjourney 模型拥有强大的"原型"认知能力。例如，当提示词包含"在垃圾场（in a junkyard）"时，模型会自动渲染垃圾、生锈的金属、破败的背景等元素
+> - 冗余描述会浪费 GPU 处理时间，并可能导致画面过度拥挤
+> - 仅当需要打破原型默认设定时，才需进行额外描述（如"在垃圾场，有一架崭新的白色钢琴"）
 
-### 原则 4: 禁用用途说明（No Purpose Explanations）
+> [!warning] 原则 10: 移除相机与元数据术语（Remove Camera & Metadata Terms）
+> 严禁使用技术性的相机参数或文件元数据，如"ISO 100"、"50mm 镜头（50mm lens）"、"f/2.8"、"HDR"、"16K"、"8-bit per channel RGBA"、"WebP/AVIF"。
+> - 这些术语在训练数据中与实际视觉效果的关联性极低，作为噪声存在，会消耗算力并导致生成失败或不可控
+> - 替代方案：使用风格化的摄影术语
+>   - 使用"宝丽来风格（Polaroid）"、"电影级静态镜头（cinematic still-shot）"、"浅景深（shallow depth of field）"来替代具体的数字参数
 
-严禁在提示词中解释图像的最终用途，如"用于标志设计（for a logo）"、"用于我的应用（for my app）"、"作为壁纸（as a wallpaper）"。
+> [!tip] 原则 11: 重构标志性视觉品牌（Recast Iconic Visual Brands）
+> 允许使用具有明确、统一视觉特征的品牌或艺术家名称作为风格修饰（如"吉卜力风格（Ghibli style）"）。
+> - 严禁将品牌名称作为抽象的质量或风格代名词（如使用"苹果公司风格"来表达极简主义）
+> - 替代方案：必须将抽象的品牌名称重构为具体的视觉特征描述
+>   - 将"苹果风格"替换为"极简主义，白色背景，光滑的金属表面，干净的线条"
 
-- 这些词汇会引入与视觉无关的噪声，稀释有效 Token 的权重
-- 替代方案：将用途转化为具体的风格描述词
-  - 将"用于标志设计"替换为"矢量图标（vector icon）"、"极简图形（minimalist graphic）"
+> [!warning] 原则 12: 禁用保真度与真实感语言（No Fidelity or Realism Language）
+> 严禁使用强调画质的冗余词汇，如"逼真的（realistic）"、"超写实的（hyperrealistic）"、"超详细的（ultra-detailed）"、"高品质（high-quality）"、"4K/8K"。
+> - 这些词汇不仅无效，还会干扰模型对核心主体的注意力分配
+> - 替代方案：使用明确的媒介描述词
+>   - 使用"照片风格（photo style）"、"摄影作品（photograph）"或具体的视觉特征（如"皮肤纹理可见"）来替代"逼真"
 
-### 原则 5: 禁用尺寸与排版描述（No Dimensions or Layout）
+> [!tip] 原则 13: 消除"或"短语（Eliminate 'Or' Phrases）
+> 严禁在提示词中使用选择性连词"或（or）"，如"红裙子或蓝裙子（red dress or blue dress）"。
+> - 模型无法在单次生成中执行逻辑选择，这会导致特征混合（生成紫裙子）或随机忽略其中一项
+> - 替代方案：做出明确决定，只选择其中一项；或者将需求拆分为两个独立的提示词分别运行
 
-严禁使用自然语言描述画面的物理尺寸或排版方向，如"方形布局（square layout）"、"垂直图像（vertical image）"、"宽屏（widescreen）"。
+> [!tip] 原则 14: 多主体压缩技术（Multi-Subject Compression）
+> 当画面必须包含超过 4 个构图主体时，强制使用"多主体压缩"工作流，分为三个步骤：
+> 1. **定义群体原型（Group Archetype）**：使用集合名词将多个主体打包为一个单一的逻辑主体。例如："三个角色走过城市（Three characters walk through a city）"
+> 2. **词汇锚定（Lexical Anchoring）**：通过空间位置介词为群体中的个体分配特征。例如："左边的人穿红衣……中间的人戴帽子……右边的人拿伞……"
+> 3. **逻辑降维**：经过压缩后，该群体在模型解析中仅占用 1 个主体名额。附属道具（如伞、帽子）不计入主体数量
 
-- 替代方案：使用宽高比参数控制画布尺寸
-
-### 原则 6: 禁用抽象与概念性语言（No Abstract or Conceptual Language）
-
-严禁使用无法直接转化为视觉像素的抽象形容词，如"神秘的（mysterious）"、"标志性的（iconic）"、"美丽的（beautiful）"、"令人惊叹的（stunning）"。
-
-- 抽象词汇会导致模型调用不可控的随机视觉元素来填补语义空白，降低提示词依从性
-- 替代方案：将抽象概念拆解为具体的视觉特征
-  - 将"神秘的森林"替换为"被浓雾笼罩的森林，光线昏暗，树木扭曲"
-
-### 原则 7: 禁用隐喻与叙事性语言（No Metaphors or Narrative Language）
-
-严禁使用文学性的比喻或长篇故事叙述，如"被遗忘时代的遗物（a relic of a forgotten time）"、"沐浴在过去的遗憾中（bathed in the regret of his past）"。
-
-- Midjourney 捕捉的是一个"冻结的瞬间（frozen moment）"，而非一段剧情或时间线
-- 替代方案：使用密集的视觉描述语言
-  - 将"沐浴在过去的遗憾中"替换为"低着头，双手捂住脸，处于阴影中"
-
-### 原则 8: 简短、简单、直接与禁用词组列表（Short, Simple, Direct & No Phrase Lists）
-
-提示词必须由结构完整的简单句组成。每个句子只描述一个图像动作或特征。
-
-- 严禁使用冗长的连词句（run-on sentences）
-- 严禁使用逗号分隔的视觉标签链（Phrase Lists），如"发光的光线，破损的墙壁，赛博朋克（glowing light, broken wall, cyberpunk）"。这种"关键词汤"会导致画布失控
-- 替代方案：将标签链重构为包含主谓宾的完整句子
-  - 将"赛博朋克风格的破损墙壁上散发着发光的光线"
-
-### 原则 9: 环境原型隐含细节（Environmental Archetypes Imply Details）
-
-避免重复描述环境原型中已经隐含的默认细节。
-
-- Midjourney 模型拥有强大的"原型"认知能力。例如，当提示词包含"在垃圾场（in a junkyard）"时，模型会自动渲染垃圾、生锈的金属、破败的背景等元素
-- 冗余描述会浪费 GPU 处理时间，并可能导致画面过度拥挤
-- 仅当需要打破原型默认设定时，才需进行额外描述（如"在垃圾场，有一架崭新的白色钢琴"）
-
-### 原则 10: 移除相机与元数据术语（Remove Camera & Metadata Terms）
-
-严禁使用技术性的相机参数或文件元数据，如"ISO 100"、"50mm 镜头（50mm lens）"、"f/2.8"、"HDR"、"16K"、"8-bit per channel RGBA"、"WebP/AVIF"。
-
-- 这些术语在训练数据中与实际视觉效果的关联性极低，作为噪声存在，会消耗算力并导致生成失败或不可控
-- 替代方案：使用风格化的摄影术语
-  - 使用"宝丽来风格（Polaroid）"、"电影级静态镜头（cinematic still-shot）"、"浅景深（shallow depth of field）"来替代具体的数字参数
-
-### 原则 11: 重构标志性视觉品牌（Recast Iconic Visual Brands）
-
-允许使用具有明确、统一视觉特征的品牌或艺术家名称作为风格修饰（如"吉卜力风格（Ghibli style）"）。
-
-- 严禁将品牌名称作为抽象的质量或风格代名词（如使用"苹果公司风格"来表达极简主义）
-- 替代方案：必须将抽象的品牌名称重构为具体的视觉特征描述
-  - 将"苹果风格"替换为"极简主义，白色背景，光滑的金属表面，干净的线条"
-
-### 原则 12: 禁用保真度与真实感语言（No Fidelity or Realism Language）
-
-严禁使用强调画质的冗余词汇，如"逼真的（realistic）"、"超写实的（hyperrealistic）"、"超详细的（ultra-detailed）"、"高品质（high-quality）"、"4K/8K"。
-
-- 这些词汇不仅无效，还会干扰模型对核心主体的注意力分配
-- 替代方案：使用明确的媒介描述词
-  - 使用"照片风格（photo style）"、"摄影作品（photograph）"或具体的视觉特征（如"皮肤纹理可见"）来替代"逼真"
-
-### 原则 13: 消除"或"短语（Eliminate 'Or' Phrases）
-
-严禁在提示词中使用选择性连词"或（or）"，如"红裙子或蓝裙子（red dress or blue dress）"。
-
-- 模型无法在单次生成中执行逻辑选择，这会导致特征混合（生成紫裙子）或随机忽略其中一项
-- 替代方案：做出明确决定，只选择其中一项；或者将需求拆分为两个独立的提示词分别运行
-
-### 原则 14: 多主体压缩技术（Multi-Subject Compression）
-
-当画面必须包含超过 4 个构图主体时，强制使用"多主体压缩"工作流，分为三个步骤：
-
-1. **定义群体原型（Group Archetype）**：使用集合名词将多个主体打包为一个单一的逻辑主体。例如："三个角色走过城市（Three characters walk through a city）"
-2. **词汇锚定（Lexical Anchoring）**：通过空间位置介词为群体中的个体分配特征。例如："左边的人穿红衣……中间的人戴帽子……右边的人拿伞……"
-3. **逻辑降维**：经过压缩后，该群体在模型解析中仅占用 1 个主体名额。附属道具（如伞、帽子）不计入主体数量
-
-### 原则 15: 仅使用有效参数（Valid Parameters Only）
-
-提示词后缀必须且只能使用官方支持的有效参数。
-
-- 严禁编造或使用已废弃的参数。如果参数不在官方列表中，模型将报错或产生不可预知的行为
+> [!tip] 原则 15: 仅使用有效参数（Valid Parameters Only）
+> 提示词后缀必须且只能使用官方支持的有效参数。
+> - 严禁编造或使用已废弃的参数。如果参数不在官方列表中，模型将报错或产生不可预知的行为
 
 ---
 
@@ -241,21 +218,21 @@ Midjourney 在单次生成中最多能稳定处理 4 个独立的构图主体。
 
 ### 全身肖像生成规范（Full-Body Character Portraits）
 
-为确保角色从头到脚完整出现在画面中，必须严格执行以下检查清单：
-
-1. **首词定义媒介**：提示词必须以艺术媒介或风格开头（如"插画（Illustration of...）"、"照片（Photograph of...）"）
-2. **使用"全长"术语**：必须使用"全长（full-length）"来引入主体
-   - 严禁使用"全身（Full Body）"（可能触发敏感词过滤）
-   - 严禁使用"镜头（Shot）"（语义多重）
-   - 严禁使用"肖像（Portrait）"（默认截断于腰部或肩部）
-3. **两端锚定法（Top & Bottom Anchoring）**：必须同时描述角色的顶部（头部、头发、帽子）与底部（脚、爪子、鞋子）。只要描述了鞋子（如"跑鞋"、"光脚"），模型为了遵循提示词，就必须将脚部纳入画幅
-4. **环境与地面互动**：必须描述角色脚下的地面（如"站在木地板上"、"走在泥地里"）或头顶的空间（如"头顶的蓝天"），以强制模型构建完整的垂直空间
-5. **垂直宽高比**：必须使用足够高的宽高比（如 2:3 或 3:4）
-
-示例：
-```
-Illustration of a full-length female elf with blue hair wandering in a sunny forest. Her bare feet walk on lush green moss. Above her head is a magical bluebird.
-```
+> [!success] 全身肖像生成规范
+> 为确保角色从头到脚完整出现在画面中，必须严格执行以下检查清单：
+> 1. **首词定义媒介**：提示词必须以艺术媒介或风格开头（如"插画（Illustration of...）"、"照片（Photograph of...）"）
+> 2. **使用"全长"术语**：必须使用"全长（full-length）"来引入主体
+>    - 严禁使用"全身（Full Body）"（可能触发敏感词过滤）
+>    - 严禁使用"镜头（Shot）"（语义多重）
+>    - 严禁使用"肖像（Portrait）"（默认截断于腰部或肩部）
+> 3. **两端锚定法（Top & Bottom Anchoring）**：必须同时描述角色的顶部（头部、头发、帽子）与底部（脚、爪子、鞋子）。只要描述了鞋子（如"跑鞋"、"光脚"），模型为了遵循提示词，就必须将脚部纳入画幅
+> 4. **环境与地面互动**：必须描述角色脚下的地面（如"站在木地板上"、"走在泥地里"）或头顶的空间（如"头顶的蓝天"），以强制模型构建完整的垂直空间
+> 5. **垂直宽高比**：必须使用足够高的宽高比（如 2:3 或 3:4）
+> 
+> 示例：
+> ```
+> Illustration of a full-length female elf with blue hair wandering in a sunny forest. Her bare feet walk on lush green moss. Above her head is a magical bluebird.
+> ```
 
 ### 细节强调与弱化策略（Emphasis & De-Emphasis）
 
@@ -398,3 +375,5 @@ a green hat on his head, a hat worn on his head, head topped with a green hat
 ---
 
 *本指南基于 Midjourney 官方文档与社区最佳实践整理，持续更新中。*
+
+[[midjourney/v7]] [[prompt-engineering]] [[AIGC]] [[guide]]

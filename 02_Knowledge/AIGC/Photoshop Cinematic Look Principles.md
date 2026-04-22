@@ -13,9 +13,9 @@ date: 2026-04-02
 
 # Photoshop 中实现电影感的思路
 
-相关笔记：[[Photoshop 电影感与CG原画感方法大全|方法库版本]] · [[Photoshop 电影感与CG原画感方法大全#常见失败模式速查|失败模式速查]]
+相关笔记：[[Photoshop Cinematic and CG Look Guide|方法库版本]] · [[Photoshop Cinematic and CG Look Guide#常见失败模式速查|失败模式速查]]
 
-核心标签：#AIGC/Photoshop #film-look #visual-logic
+核心标签：#AIGC/Photoshop [[film-look]] [[visual-logic]]
 
 ## Overview
 
@@ -122,6 +122,6 @@ date: 2026-04-02
 
 ## Related
 
-- [[Photoshop 电影感与CG原画感方法大全|Photoshop 电影感与CG原画感方法大全]]
-- [[Photoshop 电影感与CG原画感方法大全#代表性风格配方|代表性风格配方]]
-- [[Photoshop 电影感与CG原画感方法大全#工作流图与图层关系图|工作流图与图层关系图]]
+- [[Photoshop Cinematic and CG Look Guide|Photoshop 电影感与CG原画感方法大全]]
+- [[Photoshop Cinematic and CG Look Guide#代表性风格配方|代表性风格配方]]
+- [[Photoshop Cinematic and CG Look Guide#工作流图与图层关系图|工作流图与图层关系图]]

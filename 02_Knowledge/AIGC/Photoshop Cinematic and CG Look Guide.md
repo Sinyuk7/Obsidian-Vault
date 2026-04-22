@@ -14,9 +14,9 @@ date: 2026-04-02
 
 # Photoshop 电影感与CG/原画感实现方法大全
 
-相关笔记：[[Photoshop 电影感思路|方法总纲]]
+相关笔记：[[Photoshop Cinematic Look Principles|方法总纲]]
 
-核心标签：#AIGC/Photoshop #color-grading #film-look
+核心标签：#AIGC/Photoshop [[color-grading]] [[film-look]]
 
 ## 执行摘要
 
@@ -273,7 +273,7 @@ date: 2026-04-02
 
 ## 工作流图与图层关系图
 
-下面两张图把“电影感/CG感”在 Photoshop 的典型工程化做法抽象成：**从素材到输出的时间线**与**图层/Pass 的关系结构**。其中非破坏式（Smart Objects / Smart Filters / Adjustment Layers）可保持迭代；合成逻辑可借鉴 alpha compositing 与 CG passes 的“拆分—重组”思想。#compositing #lookdev
+下面两张图把“电影感/CG感”在 Photoshop 的典型工程化做法抽象成：**从素材到输出的时间线**与**图层/Pass 的关系结构**。其中非破坏式（Smart Objects / Smart Filters / Adjustment Layers）可保持迭代；合成逻辑可借鉴 alpha compositing 与 CG passes 的“拆分—重组”思想。#compositing [[lookdev]]
 
 ### 工作流时间线示意
 
@@ -339,5 +339,5 @@ erDiagram
 
 ## 相关笔记
 
-- [[Photoshop 电影感思路|Photoshop 电影感思路：总纲版]]
-- [[Photoshop 电影感思路#Consolidated Principles|关键原则速览]]
+- [[Photoshop Cinematic Look Principles|Photoshop 电影感思路：总纲版]]
+- [[Photoshop Cinematic Look Principles#Consolidated Principles|关键原则速览]]

@@ -1,6 +1,21 @@
+---
+title: Nano Banana Prompt Engineer GEM
+date: 2026-04-23
+tags:
+  - AIGC
+  - prompt-engineering
+  - nano-banana
+  - gem
+  - ai-tool
+aliases:
+  - Nano Banana GEM
+  - NB Prompt Engineer GEM
+---
+
 # Nano Banana Prompt Engineer GEM
 
-> GEM 配置文件 - 可直接复制到 Gemini GEM 中使用
+> [!info] GEM 配置文件
+> 可直接复制到 Gemini GEM 中使用
 
 ## Name
 Nano Banana Prompt Engineer
@@ -9,6 +24,9 @@ Nano Banana Prompt Engineer
 分析用户的图像生成/编辑需求，检测问题与模糊点，生成专业的 Nano Banana 提示词，并提供优化建议。
 
 ## Instructions
+
+> [!tip] 使用说明
+> 以下内容可直接复制到 Gemini GEM 的 Instructions 字段中。
 
 ```
 Persona:
@@ -61,8 +79,26 @@ Format:
 - Suggestion: One sentence, specific
 ```
 
+> [!warning] 核心约束速查
+> - **提示词长度**：编辑 40-80 词，生成 80-150 词
+> - **禁止超过 150 词**
+> - **禁止超过 2 个光影描述词**
+> - **禁止使用否定措辞**
+
+> [!danger] 绝对禁止事项
+> - 在任何提示词中超过 150 词
+> - 包含超过 2 个光影描述词
+> - 罗列所有可能的细节；只选择最重要的
+> - 使用否定措辞
+
 ## Knowledge
-- `nano_banana_prompt_engineering.txt` — 必须上传，包含六大核心要素框架、摄影术语转译规则、编辑模板、负向语义规则等完整规范
+- [[nano_banana_prompt_engineering|Nano Banana 提示词构造规范与最佳实践指南]] — 必须上传，包含六大核心要素框架、摄影术语转译规则、编辑模板、负向语义规则等完整规范
+
+---
+
+## 相关笔记
+
+- [[nano_banana_prompt_engineering|Nano Banana 提示词构造规范与最佳实践指南]]
 
 ---
 
@@ -70,6 +106,6 @@ Format:
 
 1. 在 Gemini 中创建新的 GEM
 2. 将上方 **Name** 和 **Description** 填入对应字段
-3. 将 **Instructions** 中的内容（```代码块内的文本）复制到 Instructions 字段
+3. 将 **Instructions** 中的内容（代码块内的文本）复制到 Instructions 字段
 4. 上传 `nano_banana_prompt_engineering.txt` 到 Knowledge 区域
 5. 保存并开始使用

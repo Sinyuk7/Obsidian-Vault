@@ -1,11 +1,24 @@
-# z-image Prompt Construction Prohibited Guidelines
+---
+title: z-image Prompt Construction Prohibited Guidelines
+date: 2025-03-05
+updated: 2025-03-05
+tags:
+  - AIGC
+  - z-image
+  - prompt-engineering
+aliases:
+  - z-image Prohibited Guidelines
+---
 
-Last_Updated: 2025-03-05
+# z-image Prompt Construction Prohibited Guidelines
 
 ## Overview [Required]
 
-- Purpose: Define prohibited practices, invalid operations, and constraint violations when constructing prompts for z-image
-- Scope: Covers prompt syntax bans, model mechanism limitations, content generation failures / Does not cover LoRa training, ComfyUI node parameters, model architecture details, safety filtering
+- **Purpose**: Define prohibited practices, invalid operations, and constraint violations when constructing prompts for z-image
+- **Scope**: Covers prompt syntax bans, model mechanism limitations, content generation failures / Does not cover LoRa training, ComfyUI node parameters, model architecture details, safety filtering
+
+> [!info] Related Notes
+> See [[ai_video_prompt_engineering]] for general video prompt engineering principles and [[prompt_moderation_bypass_guide]] for moderation-related prompt strategies.
 
 ## Core Concepts [Required]
 
@@ -16,38 +29,38 @@ Last_Updated: 2025-03-05
 
 ## Consolidated Principles [Required]
 
-- P1 [Critical]: Negative prompts are completely non-functional
-  - z-image ignores negative_prompt input entirely
-  - Any content placed in negative prompt boxes has zero effect on generation
-  
-- P2 [Critical]: CFG scale settings are invalid
-  - guidance_scale values do not affect output quality or prompt adherence
-  - Official pipeline uses guidance_scale = 0.0
-  
-- P3 [High]: Metaphorical language is prohibited in final prompts
-  - Poetic expressions, similes, and figurative descriptions degrade output quality
-  - z-image requires concrete, visualizable descriptions only
-  
-- P4 [High]: Meta tags are prohibited
-  - Terms like "8K", "masterpiece", "best quality", "highly detailed" are banned
-  - These tokens provide no quality enhancement for z-image
-  
-- P5 [High]: Tag-based prompting is invalid
-  - Comma-separated tag lists ("1girl, red hair, blue eyes") perform worse than natural language
-  - Tag-based syntax from Pony/SDXL models does not translate effectively
-  
-- P6 [Normal]: Vague descriptions are prohibited
-  - Generic terms like "cute anime girl" produce inconsistent results
-  - Lack of specificity causes unpredictable output variation
-  
-- P7 [Normal]: Output token count must not fall below 256 tokens
-  - Prompts with fewer than 256 tokens produce suboptimal results
-  - Context: z-image trained on detailed captions; short prompts lack sufficient conditioning signal
-  
-- P8 [Normal]: Negation phrases are prohibited outside extreme cases
-  - Pattern "no X", "without X", "no XXX" is banned in standard prompting
-  - Must use positive antonyms instead of negation
-  - Context: z-image lacks CFG mechanism to process negative constraints effectively
+> [!danger] P1 [Critical]: Negative prompts are completely non-functional
+> - z-image ignores negative_prompt input entirely
+> - Any content placed in negative prompt boxes has zero effect on generation
+
+> [!danger] P2 [Critical]: CFG scale settings are invalid
+> - guidance_scale values do not affect output quality or prompt adherence
+> - Official pipeline uses guidance_scale = 0.0
+
+> [!warning] P3 [High]: Metaphorical language is prohibited in final prompts
+> - Poetic expressions, similes, and figurative descriptions degrade output quality
+> - z-image requires concrete, visualizable descriptions only
+
+> [!warning] P4 [High]: Meta tags are prohibited
+> - Terms like "8K", "masterpiece", "best quality", "highly detailed" are banned
+> - These tokens provide no quality enhancement for z-image
+
+> [!warning] P5 [High]: Tag-based prompting is invalid
+> - Comma-separated tag lists ("1girl, red hair, blue eyes") perform worse than natural language
+> - Tag-based syntax from Pony/SDXL models does not translate effectively
+
+> [!info] P6 [Normal]: Vague descriptions are prohibited
+> - Generic terms like "cute anime girl" produce inconsistent results
+> - Lack of specificity causes unpredictable output variation
+
+> [!info] P7 [Normal]: Output token count must not fall below 256 tokens
+> - Prompts with fewer than 256 tokens produce suboptimal results
+> - Context: z-image trained on detailed captions; short prompts lack sufficient conditioning signal
+
+> [!info] P8 [Normal]: Negation phrases are prohibited outside extreme cases
+> - Pattern "no X", "without X", "no XXX" is banned in standard prompting
+> - Must use positive antonyms instead of negation
+> - Context: z-image lacks CFG mechanism to process negative constraints effectively
 
 ## Constraints [Conditional]
 
@@ -57,11 +70,11 @@ Last_Updated: 2025-03-05
   - "poetic sunset" → invalid
   - "dreamlike atmosphere" → invalid
   - "ethereal beauty" → invalid
-  
+
 - Emotional and subjective descriptors
   - "mysterious vibe" → invalid
   - "hopeful mood" → invalid without concrete visual specification
-  
+
 - Meta quality tags
   - "8K", "4K", "HD", "high resolution" → invalid
   - "masterpiece", "best quality", "ultra detailed" → invalid
@@ -78,7 +91,7 @@ Last_Updated: 2025-03-05
 - Using negative_prompt parameter
   - Context: Any negative prompt input is discarded by z-image pipeline
   - Ban boundary: All attempts to use negative prompts are ineffective
-  
+
 - Using guidance_scale for quality control
   - Context: CFG is not used in z-image inference
   - Ban boundary: guidance_scale values other than 0.0 serve no purpose
@@ -88,7 +101,7 @@ Last_Updated: 2025-03-05
 - Tag list format
   - "1girl, solo, long hair, red eyes, school uniform" → invalid structure
   - Context: z-image responds to natural language, not comma-separated tags
-  
+
 - Brief vague prompts
   - "a beautiful girl" → insufficient detail
   - "cute character" → insufficient detail
@@ -112,7 +125,7 @@ Last_Updated: 2025-03-05
 
 - Deviation from original user intent
   - PE must not alter core subject, count, action, state, IP names, colors, text
-  
+
 - Outputting content beyond the final prompt
   - PE must not output explanations, commentary, or wrapper text
   - Only the processed prompt string is allowed in output

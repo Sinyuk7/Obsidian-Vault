@@ -1,3 +1,10 @@
+---
+title: Midjourney 提示词构造禁忌指南
+tags: [midjourney, AIGC, prompt-engineering, constraints, donot]
+date: 2026-03-06
+aliases: [MJ Prompt Don't Guide]
+---
+
 # Midjourney 提示词构造禁忌指南
 Last_Updated: 2026-03-06
 
@@ -7,24 +14,43 @@ Last_Updated: 2026-03-06
 
 ## Core Concepts
 
-- **注意力预算（Attention Budget）**: 模型处理提示词时的算力资源是有限的；提示词中描述的内容越多，每个元素分配到的注意力就越少，超出阈值后细节开始丢失
-- **语义原型（Archetype）**: 模型预训练中对某一概念最普遍形态的认知；调用环境原型（如"垃圾场"）会自动填充该场景的默认细节，重复描述这些隐含细节属于无效浪费
-- **影响斜率（Slope of Influence）**: 提示词中词汇越靠前，对画面焦点与渲染优先级的影响越大；顺序错误会导致焦点偏移
-- **逻辑冻结帧（Frozen Moment）**: Midjourney 捕捉的是单一静态瞬间，而非叙事、情节或时间线；超出单帧范畴的语言对模型无效
-- **关键词汤（Keyword Soup）**: 逗号分隔的标签列表式写法；在当前版本中会导致画布失控，属于已过时的提示词策略
+- **==注意力预算（Attention Budget）==**: 模型处理提示词时的算力资源是有限的；提示词中描述的内容越多，每个元素分配到的注意力就越少，超出阈值后细节开始丢失
+- **==语义原型（Archetype）==**: 模型预训练中对某一概念最普遍形态的认知；调用环境原型（如"垃圾场"）会自动填充该场景的默认细节，重复描述这些隐含细节属于无效浪费
+- **==影响斜率（Slope of Influence）==**: 提示词中词汇越靠前，对画面焦点与渲染优先级的影响越大；顺序错误会导致焦点偏移
+- **==逻辑冻结帧（Frozen Moment）==**: Midjourney 捕捉的是单一静态瞬间，而非叙事、情节或时间线；超出单帧范畴的语言对模型无效
+- **==关键词汤（Keyword Soup）==**: 逗号分隔的标签列表式写法；在当前版本中会导致画布失控，属于已过时的提示词策略
 
 ## Consolidated Principles
 
-- P1 [Critical]: 禁止使用否定词（no、not、without、never、nothing）——模型注意力机制会因否定词反而强化该元素的渲染概率
-- P2 [Critical]: 禁止使用关键词汤（逗号分隔的标签列表）——此为旧版本写法，当前版本中会导致构图失控，必须重构为包含主谓宾的完整简单句
-- P3 [Critical]: 禁止使用祈使句与系统指令（draw、add、make、generate）——Midjourney 不是指令执行型 LLM，标准提示词模式不解析命令，只解析视觉描述
-- P4 [High]: 禁止使用抽象与概念性语言（mysterious、iconic、beautiful、stunning）——抽象词汇触发不可控的随机视觉填充，降低提示词依从性
-- P5 [High]: 禁止使用文学隐喻与叙事性语言——Midjourney 捕捉冻结瞬间，不处理故事情节、时间轴或文学比喻
-- P6 [High]: 禁止使用技术性相机元数据（ISO、mm 镜头、f/2.8、HDR、4K/8K/16K）——这些术语在训练数据中与视觉效果关联性极低，作为噪声消耗算力
-- P7 [High]: 禁止使用保真度与真实感修饰词（realistic、hyperrealistic、ultra-detailed、high-quality）——在当前版本中无效且干扰注意力分配
-- P8 [Normal]: 禁止使用"或"逻辑分支（red dress or blue dress）——模型无法执行单次生成内的逻辑选择，结果为特征混合或随机忽略
-- P9 [Normal]: 禁止使用用途说明（for a logo、for my app、as a wallpaper）——与视觉无关的词汇稀释有效 Token 权重
-- P10 [Normal]: 禁止使用自然语言描述画布尺寸或排版方向（square layout、vertical image、widescreen）——尺寸控制只能通过参数实现
+> [!danger] P1: 禁止使用否定词（no、not、without、never、nothing）
+> 模型注意力机制会因否定词反而强化该元素的渲染概率
+
+> [!danger] P2: 禁止使用关键词汤（逗号分隔的标签列表）
+> 此为旧版本写法，当前版本中会导致构图失控，必须重构为包含主谓宾的完整简单句
+
+> [!danger] P3: 禁止使用祈使句与系统指令（draw、add、make、generate）
+> Midjourney 不是指令执行型 LLM，标准提示词模式不解析命令，只解析视觉描述
+
+> [!warning] P4: 禁止使用抽象与概念性语言（mysterious、iconic、beautiful、stunning）
+> 抽象词汇触发不可控的随机视觉填充，降低提示词依从性
+
+> [!warning] P5: 禁止使用文学隐喻与叙事性语言
+> Midjourney 捕捉冻结瞬间，不处理故事情节、时间轴或文学比喻
+
+> [!warning] P6: 禁止使用技术性相机元数据（ISO、mm 镜头、f/2.8、HDR、4K/8K/16K）
+> 这些术语在训练数据中与视觉效果关联性极低，作为噪声消耗算力
+
+> [!warning] P7: 禁止使用保真度与真实感修饰词（realistic、hyperrealistic、ultra-detailed、high-quality）
+> 在当前版本中无效且干扰注意力分配
+
+> [!tip] P8: 禁止使用"或"逻辑分支（red dress or blue dress）
+> 模型无法执行单次生成内的逻辑选择，结果为特征混合或随机忽略
+
+> [!tip] P9: 禁止用途说明（for a logo、for my app、as a wallpaper）
+> 与视觉无关的词汇稀释有效 Token 权重
+
+> [!tip] P10: 禁止自然语言描述画布尺寸或排版方向（square layout、vertical image、widescreen）
+> 尺寸控制只能通过参数实现
 
 ## Constraints
 
@@ -228,3 +254,5 @@ Last_Updated: 2026-03-06
   - `Netflix vibe`
 - 例外：具有明确且统一视觉特征的艺术 IP 允许保留（如 `Ghibli style`、`Pixar style`）
 - 机制：模糊的品牌引用会触发随机联想，而非可控的视觉特征提取
+
+[[midjourney/v7]] [[prompt-engineering]] [[AIGC]] [[constraints]]
