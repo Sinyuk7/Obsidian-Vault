@@ -1,0 +1,31 @@
+# Obsidian local state and generated environment files
+.obsidian/
+.smart-env/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+._*
+
+# Editor / temp / backup files
+*.swp
+*.swo
+*.tmp
+*.temp
+*.log
+*.bak
+*.orig
+*.rej
+*~
+
+# Common build / cache artifacts
+.cache/
+cache/
+dist/
+build/
+tmp/
+temp/
+
+copilot
