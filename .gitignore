@@ -1,13 +1,27 @@
-# Obsidian local state and generated environment files
+# Obsidian app, plugin, and AI-generated local state
 .obsidian/
 .smart-env/
+.trash/
+/copilot/
+
+# Local secrets and environment overrides
+.env
+.env.*
+!.env.example
 
 # OS-generated files
 .DS_Store
-Thumbs.db
-desktop.ini
-ehthumbs.db
 ._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100/
+.Trashes/
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/
 
 # Editor / temp / backup files
 *.swp
@@ -19,13 +33,26 @@ ehthumbs.db
 *.orig
 *.rej
 *~
+.vscode/
+.idea/
 
-# Common build / cache artifacts
-.cache/
-cache/
-dist/
-build/
-tmp/
-temp/
+# Runtime artifacts from vault maintenance scripts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+90_System/**/*_report.json
 
-copilot
+# Root-level build / cache artifacts
+/.cache/
+/cache/
+/dist/
+/build/
+/tmp/
+/temp/
+/node_modules/

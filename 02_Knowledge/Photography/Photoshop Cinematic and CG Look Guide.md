@@ -6,10 +6,17 @@ aliases:
 tags:
   - AIGC
   - AIGC/Photoshop
+  - Photography
+  - Photography/Post-Processing
+  - Photoshop
   - color-grading
   - film-look
   - CG
 date: 2026-04-02
+last_updated: 2026-05-22
+source_path: "D:/github/Awesome-AIGC/wiki/photoshop/原画感实现方法大全.md"
+source_type: imported-wiki-note
+status: distilled
 ---
 
 # Photoshop 电影感与CG/原画感实现方法大全
@@ -17,6 +24,9 @@ date: 2026-04-02
 相关笔记：[[Photoshop Cinematic Look Principles|方法总纲]]
 
 核心标签：#AIGC/Photoshop [[color-grading]] [[film-look]]
+
+> [!info] 来源
+> 已从 `D:\github\Awesome-AIGC\wiki\photoshop\原画感实现方法大全.md` 导入并整理为当前 vault 的知识笔记。
 
 ## 执行摘要
 

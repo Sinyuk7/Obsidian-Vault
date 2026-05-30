@@ -5,10 +5,17 @@ aliases:
 tags:
   - AIGC
   - AIGC/Photoshop
+  - Photography
+  - Photography/Post-Processing
+  - Photoshop
   - film-look
   - visual-logic
   - theory
 date: 2026-04-02
+last_updated: 2026-05-22
+source_path: "D:/github/Awesome-AIGC/wiki/photoshop/Photoshop 中实现电影感的思路.md"
+source_type: imported-wiki-note
+status: distilled
 ---
 
 # Photoshop 中实现电影感的思路
@@ -16,6 +23,9 @@ date: 2026-04-02
 相关笔记：[[Photoshop Cinematic and CG Look Guide|方法库版本]] · [[Photoshop Cinematic and CG Look Guide#常见失败模式速查|失败模式速查]]
 
 核心标签：#AIGC/Photoshop [[film-look]] [[visual-logic]]
+
+> [!info] 来源
+> 已从 `D:\github\Awesome-AIGC\wiki\photoshop\Photoshop 中实现电影感的思路.md` 导入并整理为当前 vault 的知识笔记。
 
 ## Overview
 
