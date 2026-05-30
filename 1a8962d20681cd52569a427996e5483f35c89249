@@ -1,0 +1,215 @@
+03_Resources/Docs/.gitkeep
+  43fdaccb1ac0e478 1
+03_Resources/Papers/.gitkeep
+  43fdaccb1ac0e478 1
+01_Projects/Active/.gitkeep
+  43fdaccb1ac0e478 1
+"03_Resources/Web Clips/.gitkeep"
+  43fdaccb1ac0e478 1
+01_Projects/Archive/.gitkeep
+  43fdaccb1ac0e478 1
+05_Attachments/.gitkeep
+  43fdaccb1ac0e478 1
+01_Projects/Someday/.gitkeep
+  43fdaccb1ac0e478 1
+02_Knowledge/3D/.gitkeep
+  43fdaccb1ac0e478 1
+02_Knowledge/Engineering/.gitkeep
+  43fdaccb1ac0e478 1
+04_Templates/.gitkeep
+  43fdaccb1ac0e478 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.6",
+  "base_commit_sha": "1a8962d20681cd52569a427996e5483f35c89249",
+  "prompts": {
+    "140a6d7b5395c151": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e53df-8520-7d83-86f1-1979526cc6db",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Sinyuk",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 1944,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "02_knowledge/photography/摄影分析到人体结构还原工作流.md": {
+          "accepted_lines": 63
+        },
+        "02_knowledge/photography/角色原画结构分析技巧清单.md": {
+          "accepted_lines": 63
+        },
+        "02_knowledge/aigc/seedance 2.md": {
+          "accepted_lines": 65
+        },
+        "02_knowledge/photography/漫画身材美学 比例与心理.md": {
+          "accepted_lines": 62
+        },
+        "02_knowledge/aigc/doc_zimage_architecture_policy.md": {
+          "accepted_lines": 68
+        },
+        "02_knowledge/aigc/midjourney prompt construction standards.md": {
+          "accepted_lines": 69
+        },
+        "02_knowledge/photography/英雄联盟原画构图技巧研究.md": {
+          "accepted_lines": 63
+        },
+        "02_knowledge/photography/漫画身材比例美学研究.md": {
+          "accepted_lines": 63
+        },
+        "02_knowledge/photography/photoshop 电影cg感技术探索.md": {
+          "accepted_lines": 66
+        },
+        "02_knowledge/aigc/英雄联盟原画视觉设计演变分析.md": {
+          "accepted_lines": 62
+        },
+        "02_knowledge/aigc/英雄联盟(lol)现代原画风格构建 执行手册.md": {
+          "accepted_lines": 64
+        },
+        "02_knowledge/aigc/image understanding.md": {
+          "accepted_lines": 61
+        },
+        "02_knowledge/aigc/ai视频提示词标准化文档生成.md": {
+          "accepted_lines": 69
+        },
+        "02_knowledge/photography/伯里曼人体结构教学精华总结.md": {
+          "accepted_lines": 62
+        },
+        "02_knowledge/photography/6头身性感写实液化指南.md": {
+          "accepted_lines": 65
+        },
+        "03_resources/references/即梦seedance审核规避技巧.md": {
+          "accepted_lines": 69
+        },
+        "02_knowledge/photography/角色原画透视结构拆解分析.md": {
+          "accepted_lines": 64
+        },
+        "02_knowledge/aigc/ai视频生成标准化提示词规范.md": {
+          "accepted_lines": 68
+        },
+        "02_knowledge/aigc/英雄联盟原画风格主控系统.md": {
+          "accepted_lines": 62
+        },
+        "02_knowledge/aigc/cinematic value and planar composition.md": {
+          "accepted_lines": 63
+        },
+        "02_knowledge/aigc/midjourney 16_9 构图生成指南.md": {
+          "accepted_lines": 67
+        },
+        "02_knowledge/photography/照片转漫画身材修饰技巧.md": {
+          "accepted_lines": 64
+        },
+        "02_knowledge/aigc/midjourney 构图技巧与全身照.md": {
+          "accepted_lines": 67
+        },
+        "02_knowledge/photography/角色设计体块与素体重建.md": {
+          "accepted_lines": 63
+        },
+        "02_knowledge/photography/atmospheric perspective in visual storytelling.md": {
+          "accepted_lines": 63
+        },
+        "02_knowledge/photography/英雄联盟原画风格的摄影应用.md": {
+          "accepted_lines": 63
+        },
+        "02_knowledge/aigc/可灵 ai 视频生成操作手册.md": {
+          "accepted_lines": 67
+        },
+        "03_resources/references/ai绘画审核规避实战指南.md": {
+          "accepted_lines": 67
+        },
+        "02_knowledge/aigc/midjourney 提示词规范与实践.md": {
+          "accepted_lines": 65
+        },
+        "02_knowledge/aigc/midjourney_v7_best_practices.md": {
+          "accepted_lines": 67
+        }
+      }
+    },
+    "43fdaccb1ac0e478": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e76fa-ef75-7f32-9a4c-8dd7a6e99ec9",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Sinyuk",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 0,
+      "accepted_lines": 500,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "03_Resources/Docs/.gitkeep": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "02_Knowledge/Photography/Photoshop Cinematic and CG Look Guide.md": {
+          "accepted_lines": 353
+        },
+        "02_Knowledge/Engineering/.gitkeep": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "05_Attachments/.gitkeep": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "01_Projects/Someday/.gitkeep": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "02_Knowledge/3D/.gitkeep": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "01_Projects/Archive/.gitkeep": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "03_Resources/Web Clips/.gitkeep": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "01_Projects/Active/.gitkeep": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "04_Templates/.gitkeep": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "02_Knowledge/Photography/Photoshop Cinematic Look Principles.md": {
+          "accepted_lines": 137
+        },
+        "03_Resources/Papers/.gitkeep": {
+          "additions": 1,
+          "accepted_lines": 1
+        }
+      }
+    },
+    "dc51fbb9aff987a6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e530b-2aa4-7d22-8055-c8abf77958d0",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Sinyuk",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 2090,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "90_system/reformat_imported_markdown_report.json": {
+          "accepted_lines": 6
+        },
+        "90_system/drive_download_20260523_import_report.json": {
+          "accepted_lines": 2084
+        }
+      }
+    }
+  }
+}
