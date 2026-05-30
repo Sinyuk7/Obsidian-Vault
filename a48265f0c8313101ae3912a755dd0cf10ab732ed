@@ -1,0 +1,574 @@
+"02_Knowledge/AIGC/Midjourney 构图技巧与全身照.md"
+  43fdaccb1ac0e478 1-67
+02_Knowledge/AIGC/英雄联盟原画风格主控系统.md
+  43fdaccb1ac0e478 1-62
+02_Knowledge/AIGC/AI视频提示词标准化文档生成.md
+  43fdaccb1ac0e478 1-69
+02_Knowledge/AIGC/英雄联盟原画视觉设计演变分析.md
+  43fdaccb1ac0e478 1-62
+02_Knowledge/AIGC/AI视频生成标准化提示词规范.md
+  43fdaccb1ac0e478 1-68
+"02_Knowledge/AIGC/英雄联盟(LoL)现代原画风格构建 执行手册.md"
+  43fdaccb1ac0e478 1-64
+02_Knowledge/Photography/角色原画透视结构拆解分析.md
+  43fdaccb1ac0e478 1-64
+"02_Knowledge/AIGC/Cinematic Value and Planar Composition.md"
+  43fdaccb1ac0e478 1-63
+"02_Knowledge/AIGC/可灵 AI 视频生成操作手册.md"
+  43fdaccb1ac0e478 1-67
+"02_Knowledge/Photography/Photoshop Cinematic and CG Look Guide.md"
+  43fdaccb1ac0e478 9-11,16-19,28-30
+02_Knowledge/Photography/伯里曼人体结构教学精华总结.md
+  43fdaccb1ac0e478 1-62
+"02_Knowledge/Photography/漫画身材美学 比例与心理.md"
+  43fdaccb1ac0e478 1-62
+"02_Knowledge/AIGC/Midjourney Prompt Construction Standards.md"
+  43fdaccb1ac0e478 1-69
+90_System/reformat_imported_markdown.py
+  43fdaccb1ac0e478 1-290
+03_Resources/References/AI绘画审核规避实战指南.md
+  43fdaccb1ac0e478 1-67
+02_Knowledge/AIGC/midjourney_v7_best_practices.md
+  43fdaccb1ac0e478 1-67
+02_Knowledge/Photography/照片转漫画身材修饰技巧.md
+  43fdaccb1ac0e478 1-64
+02_Knowledge/Photography/角色设计体块与素体重建.md
+  43fdaccb1ac0e478 1-63
+02_Knowledge/Photography/英雄联盟原画构图技巧研究.md
+  43fdaccb1ac0e478 1-63
+02_Knowledge/AIGC/提示词.md
+  dc51fbb9aff987a6 1-38
+90_System/import_drive_docs.py
+  43fdaccb1ac0e478 1-453
+"02_Knowledge/Photography/Photoshop 电影CG感技术探索.md"
+  43fdaccb1ac0e478 1-66
+"02_Knowledge/AIGC/Image understanding.md"
+  43fdaccb1ac0e478 1-61
+02_Knowledge/Photography/6头身性感写实液化指南.md
+  43fdaccb1ac0e478 1-65
+02_Knowledge/Photography/漫画身材比例美学研究.md
+  43fdaccb1ac0e478 1-63
+02_Knowledge/Photography/高级人像构图深度研究.md
+  43fdaccb1ac0e478 1-269
+03_Resources/References/即梦Seedance审核规避技巧.md
+  43fdaccb1ac0e478 1-69
+"02_Knowledge/AIGC/Midjourney 16_9 构图生成指南.md"
+  43fdaccb1ac0e478 1-67
+"02_Knowledge/AIGC/Midjourney 提示词规范与实践.md"
+  43fdaccb1ac0e478 1-65
+.gitignore
+  43fdaccb1ac0e478 1,4-5,7-10,14-18,20,22-24,36-37,39-49,51-58
+02_Knowledge/Photography/英雄联盟原画风格的摄影应用.md
+  43fdaccb1ac0e478 1-63
+"02_Knowledge/Photography/Atmospheric Perspective in Visual Storytelling.md"
+  43fdaccb1ac0e478 1-63
+02_Knowledge/AIGC/doc_zimage_architecture_policy.md
+  43fdaccb1ac0e478 1-68
+"02_Knowledge/AIGC/Seedance 2.md"
+  43fdaccb1ac0e478 1-65
+"02_Knowledge/Photography/Photoshop Cinematic Look Principles.md"
+  43fdaccb1ac0e478 8-10,15-18,27-29
+02_Knowledge/Photography/摄影分析到人体结构还原工作流.md
+  43fdaccb1ac0e478 1-63
+02_Knowledge/Photography/角色原画结构分析技巧清单.md
+  43fdaccb1ac0e478 1-63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.6",
+  "base_commit_sha": "a48265f0c8313101ae3912a755dd0cf10ab732ed",
+  "prompts": {
+    "140a6d7b5395c151": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e53df-8520-7d83-86f1-1979526cc6db",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Sinyuk",
+      "messages": [],
+      "total_additions": 1946,
+      "total_deletions": 10857,
+      "accepted_lines": 1944,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "02_knowledge/aigc/midjourney_v7_best_practices.md": {
+          "additions": 67,
+          "deletions": 551,
+          "accepted_lines": 67
+        },
+        "03_resources/references/ai绘画审核规避实战指南.md": {
+          "additions": 67,
+          "deletions": 28,
+          "accepted_lines": 67
+        },
+        "02_knowledge/aigc/可灵 ai 视频生成操作手册.md": {
+          "additions": 67,
+          "deletions": 274,
+          "accepted_lines": 67
+        },
+        "02_knowledge/photography/漫画身材美学 比例与心理.md": {
+          "additions": 62,
+          "deletions": 235,
+          "accepted_lines": 62
+        },
+        "02_knowledge/photography/伯里曼人体结构教学精华总结.md": {
+          "additions": 62,
+          "deletions": 426,
+          "accepted_lines": 62
+        },
+        "02_knowledge/aigc/ai视频提示词标准化文档生成.md": {
+          "additions": 69,
+          "deletions": 333,
+          "accepted_lines": 69
+        },
+        "02_knowledge/aigc/doc_zimage_architecture_policy.md": {
+          "additions": 69,
+          "deletions": 770,
+          "accepted_lines": 68
+        },
+        "02_knowledge/aigc/ai视频生成标准化提示词规范.md": {
+          "additions": 68,
+          "deletions": 204,
+          "accepted_lines": 68
+        },
+        "02_knowledge/aigc/midjourney prompt construction standards.md": {
+          "additions": 69,
+          "deletions": 473,
+          "accepted_lines": 69
+        },
+        "02_knowledge/aigc/cinematic value and planar composition.md": {
+          "additions": 63,
+          "deletions": 411,
+          "accepted_lines": 63
+        },
+        "02_knowledge/photography/atmospheric perspective in visual storytelling.md": {
+          "additions": 63,
+          "deletions": 406,
+          "accepted_lines": 63
+        },
+        "02_knowledge/aigc/seedance 2.md": {
+          "additions": 66,
+          "deletions": 139,
+          "accepted_lines": 65
+        },
+        "02_knowledge/aigc/英雄联盟原画视觉设计演变分析.md": {
+          "additions": 62,
+          "deletions": 450,
+          "accepted_lines": 62
+        },
+        "02_knowledge/photography/角色原画透视结构拆解分析.md": {
+          "additions": 64,
+          "deletions": 630,
+          "accepted_lines": 64
+        },
+        "02_knowledge/aigc/midjourney 构图技巧与全身照.md": {
+          "additions": 67,
+          "deletions": 350,
+          "accepted_lines": 67
+        },
+        "03_resources/references/即梦seedance审核规避技巧.md": {
+          "additions": 69,
+          "deletions": 28,
+          "accepted_lines": 69
+        },
+        "02_knowledge/aigc/英雄联盟原画风格主控系统.md": {
+          "additions": 62,
+          "deletions": 287,
+          "accepted_lines": 62
+        },
+        "02_knowledge/photography/漫画身材比例美学研究.md": {
+          "additions": 63,
+          "deletions": 426,
+          "accepted_lines": 63
+        },
+        "02_knowledge/photography/照片转漫画身材修饰技巧.md": {
+          "additions": 64,
+          "deletions": 401,
+          "accepted_lines": 64
+        },
+        "02_knowledge/photography/英雄联盟原画风格的摄影应用.md": {
+          "additions": 63,
+          "deletions": 449,
+          "accepted_lines": 63
+        },
+        "02_knowledge/photography/角色设计体块与素体重建.md": {
+          "additions": 63,
+          "deletions": 413,
+          "accepted_lines": 63
+        },
+        "02_knowledge/photography/photoshop 电影cg感技术探索.md": {
+          "additions": 66,
+          "deletions": 401,
+          "accepted_lines": 66
+        },
+        "02_knowledge/photography/角色原画结构分析技巧清单.md": {
+          "additions": 63,
+          "deletions": 427,
+          "accepted_lines": 63
+        },
+        "02_knowledge/photography/6头身性感写实液化指南.md": {
+          "additions": 65,
+          "deletions": 246,
+          "accepted_lines": 65
+        },
+        "02_knowledge/photography/摄影分析到人体结构还原工作流.md": {
+          "additions": 63,
+          "deletions": 515,
+          "accepted_lines": 63
+        },
+        "02_knowledge/aigc/midjourney 16_9 构图生成指南.md": {
+          "additions": 67,
+          "deletions": 234,
+          "accepted_lines": 67
+        },
+        "02_knowledge/photography/英雄联盟原画构图技巧研究.md": {
+          "additions": 63,
+          "deletions": 366,
+          "accepted_lines": 63
+        },
+        "02_knowledge/aigc/英雄联盟(lol)现代原画风格构建 执行手册.md": {
+          "additions": 64,
+          "deletions": 345,
+          "accepted_lines": 64
+        },
+        "02_knowledge/aigc/image understanding.md": {
+          "additions": 61,
+          "deletions": 113,
+          "accepted_lines": 61
+        },
+        "02_knowledge/aigc/midjourney 提示词规范与实践.md": {
+          "additions": 65,
+          "deletions": 526,
+          "accepted_lines": 65
+        }
+      }
+    },
+    "43fdaccb1ac0e478": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e76fa-ef75-7f32-9a4c-8dd7a6e99ec9",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Sinyuk",
+      "messages": [],
+      "total_additions": 3485,
+      "total_deletions": 249,
+      "accepted_lines": 3485,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "02_Knowledge/AIGC/英雄联盟(LoL)现代原画风格构建 执行手册.md": {
+          "additions": 64,
+          "accepted_lines": 64
+        },
+        "00_inbox/联网搜索 给我制定一个一份 一个月的减肥计划,饮食+运动; 条件 运动我目前只能在家里,大型设备只.md": {
+          "deletions": 131
+        },
+        "02_Knowledge/Photography/漫画身材美学 比例与心理.md": {
+          "additions": 62,
+          "accepted_lines": 62
+        },
+        "03_Resources/References/即梦Seedance审核规避技巧.md": {
+          "additions": 69,
+          "accepted_lines": 69
+        },
+        "02_Knowledge/Photography/伯里曼人体结构教学精华总结.md": {
+          "additions": 62,
+          "accepted_lines": 62
+        },
+        "02_Knowledge/AIGC/Cinematic Value and Planar Composition.md": {
+          "additions": 63,
+          "accepted_lines": 63
+        },
+        "02_Knowledge/Photography/照片转漫画身材修饰技巧.md": {
+          "additions": 64,
+          "accepted_lines": 64
+        },
+        "02_Knowledge/AIGC/Midjourney Prompt Construction Standards.md": {
+          "additions": 69,
+          "accepted_lines": 69
+        },
+        "02_Knowledge/AIGC/Midjourney 构图技巧与全身照.md": {
+          "additions": 67,
+          "accepted_lines": 67
+        },
+        "02_Knowledge/Photography/角色设计体块与素体重建.md": {
+          "additions": 63,
+          "accepted_lines": 63
+        },
+        "02_Knowledge/Photography/漫画身材比例美学研究.md": {
+          "additions": 63,
+          "accepted_lines": 63
+        },
+        "02_Knowledge/AIGC/Midjourney 16_9 构图生成指南.md": {
+          "additions": 67,
+          "accepted_lines": 67
+        },
+        "02_Knowledge/AIGC/英雄联盟原画风格主控系统.md": {
+          "additions": 62,
+          "accepted_lines": 62
+        },
+        "02_Knowledge/AIGC/可灵 AI 视频生成操作手册.md": {
+          "additions": 67,
+          "accepted_lines": 67
+        },
+        "02_Knowledge/AIGC/Seedance 2.md": {
+          "additions": 65,
+          "accepted_lines": 65
+        },
+        "02_Knowledge/AIGC/midjourney_v7_best_practices.md": {
+          "additions": 67,
+          "accepted_lines": 67
+        },
+        "02_Knowledge/Photography/Photoshop 电影CG感技术探索.md": {
+          "additions": 66,
+          "accepted_lines": 66
+        },
+        "02_Knowledge/Photography/Atmospheric Perspective in Visual Storytelling.md": {
+          "additions": 63,
+          "accepted_lines": 63
+        },
+        "02_Knowledge/Photography/Photoshop Cinematic and CG Look Guide.md": {
+          "additions": 353,
+          "accepted_lines": 353
+        },
+        "02_Knowledge/AIGC/AI视频提示词标准化文档生成.md": {
+          "additions": 69,
+          "accepted_lines": 69
+        },
+        "90_System/reformat_imported_markdown.py": {
+          "additions": 290,
+          "accepted_lines": 290
+        },
+        "02_Knowledge/Photography/英雄联盟原画构图技巧研究.md": {
+          "additions": 63,
+          "accepted_lines": 63
+        },
+        "02_Knowledge/Photography/角色原画结构分析技巧清单.md": {
+          "additions": 63,
+          "accepted_lines": 63
+        },
+        "02_Knowledge/Photography/高级人像构图深度研究.md": {
+          "additions": 269,
+          "accepted_lines": 269
+        },
+        "02_Knowledge/Photography/英雄联盟原画风格的摄影应用.md": {
+          "additions": 63,
+          "accepted_lines": 63
+        },
+        "02_Knowledge/AIGC/doc_zimage_architecture_policy.md": {
+          "additions": 68,
+          "accepted_lines": 68
+        },
+        "03_Resources/References/AI绘画审核规避实战指南.md": {
+          "additions": 67,
+          "accepted_lines": 67
+        },
+        "02_knowledge/aigc/提示词构造 迭代数据.md": {
+          "deletions": 106
+        },
+        "02_Knowledge/AIGC/Image understanding.md": {
+          "additions": 61,
+          "accepted_lines": 61
+        },
+        "90_System/import_drive_docs.py": {
+          "additions": 453,
+          "accepted_lines": 453
+        },
+        "02_Knowledge/AIGC/Midjourney 提示词规范与实践.md": {
+          "additions": 65,
+          "accepted_lines": 65
+        },
+        "02_Knowledge/Photography/角色原画透视结构拆解分析.md": {
+          "additions": 64,
+          "accepted_lines": 64
+        },
+        "02_Knowledge/Photography/摄影分析到人体结构还原工作流.md": {
+          "additions": 63,
+          "accepted_lines": 63
+        },
+        "02_Knowledge/Photography/Photoshop Cinematic Look Principles.md": {
+          "additions": 137,
+          "accepted_lines": 137
+        },
+        "02_Knowledge/Photography/6头身性感写实液化指南.md": {
+          "additions": 65,
+          "accepted_lines": 65
+        },
+        ".gitignore": {
+          "additions": 39,
+          "deletions": 12,
+          "accepted_lines": 39
+        },
+        "02_Knowledge/AIGC/英雄联盟原画视觉设计演变分析.md": {
+          "additions": 62,
+          "accepted_lines": 62
+        },
+        "02_Knowledge/AIGC/AI视频生成标准化提示词规范.md": {
+          "additions": 68,
+          "accepted_lines": 68
+        }
+      }
+    },
+    "dc51fbb9aff987a6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e530b-2aa4-7d22-8055-c8abf77958d0",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Sinyuk",
+      "messages": [],
+      "total_additions": 15056,
+      "total_deletions": 2306,
+      "accepted_lines": 2128,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "02_knowledge/photography/6头身性感写实液化指南.md": {
+          "additions": 296,
+          "deletions": 50
+        },
+        "90_system/reformat_imported_markdown_report.json": {
+          "additions": 6,
+          "accepted_lines": 6
+        },
+        "02_knowledge/photography/photoshop 电影cg感技术探索.md": {
+          "additions": 454,
+          "deletions": 53
+        },
+        "02_knowledge/aigc/英雄联盟(lol)现代原画风格构建 执行手册.md": {
+          "additions": 436,
+          "deletions": 91
+        },
+        "02_knowledge/aigc/英雄联盟原画视觉设计演变分析.md": {
+          "additions": 496,
+          "deletions": 46
+        },
+        "02_knowledge/photography/摄影分析到人体结构还原工作流.md": {
+          "additions": 613,
+          "deletions": 98
+        },
+        "02_knowledge/aigc/ai视频生成标准化提示词规范.md": {
+          "additions": 271,
+          "deletions": 67
+        },
+        "02_knowledge/photography/照片转漫画身材修饰技巧.md": {
+          "additions": 482,
+          "deletions": 81
+        },
+        "02_knowledge/photography/角色原画结构分析技巧清单.md": {
+          "additions": 465,
+          "deletions": 38
+        },
+        "02_knowledge/photography/atmospheric perspective in visual storytelling.md": {
+          "additions": 501,
+          "deletions": 95
+        },
+        "02_knowledge/aigc/提示词构造 迭代数据.md": {
+          "additions": 106
+        },
+        "02_knowledge/photography/漫画身材美学 比例与心理.md": {
+          "additions": 264,
+          "deletions": 29
+        },
+        "02_Knowledge/AIGC/提示词.md": {
+          "additions": 38,
+          "accepted_lines": 38
+        },
+        "02_knowledge/aigc/cinematic value and planar composition.md": {
+          "additions": 476,
+          "deletions": 65
+        },
+        "02_knowledge/aigc/midjourney_v7_best_practices.md": {
+          "additions": 575,
+          "deletions": 24
+        },
+        "02_knowledge/photography/英雄联盟原画风格的摄影应用.md": {
+          "additions": 501,
+          "deletions": 52
+        },
+        "02_knowledge/photography/伯里曼人体结构教学精华总结.md": {
+          "additions": 473,
+          "deletions": 47
+        },
+        "02_knowledge/photography/漫画身材比例美学研究.md": {
+          "additions": 484,
+          "deletions": 58
+        },
+        "02_knowledge/aigc/midjourney 构图技巧与全身照.md": {
+          "additions": 431,
+          "deletions": 81
+        },
+        "90_system/drive_download_20260523_import_report.json": {
+          "additions": 2256,
+          "deletions": 172,
+          "accepted_lines": 2084
+        },
+        "02_knowledge/aigc/seedance 2.md": {
+          "additions": 155,
+          "deletions": 17
+        },
+        "02_Knowledge/AIGC/Photoshop Cinematic Look Principles.md": {
+          "deletions": 127
+        },
+        "02_knowledge/aigc/英雄联盟原画风格主控系统.md": {
+          "additions": 366,
+          "deletions": 79
+        },
+        "02_knowledge/photography/英雄联盟原画构图技巧研究.md": {
+          "additions": 409,
+          "deletions": 43
+        },
+        "02_knowledge/aigc/midjourney 提示词规范与实践.md": {
+          "additions": 587,
+          "deletions": 61
+        },
+        "02_knowledge/aigc/midjourney 16_9 构图生成指南.md": {
+          "additions": 261,
+          "deletions": 27
+        },
+        "03_resources/references/即梦seedance审核规避技巧.md": {
+          "additions": 35,
+          "deletions": 7
+        },
+        "02_knowledge/photography/角色原画透视结构拆解分析.md": {
+          "additions": 760,
+          "deletions": 130
+        },
+        "02_knowledge/aigc/doc_zimage_architecture_policy.md": {
+          "additions": 786,
+          "deletions": 17
+        },
+        "02_Knowledge/AIGC/Photoshop Cinematic and CG Look Guide.md": {
+          "deletions": 343
+        },
+        "02_knowledge/aigc/image understanding.md": {
+          "additions": 139,
+          "deletions": 26
+        },
+        "02_knowledge/aigc/ai视频提示词标准化文档生成.md": {
+          "additions": 387,
+          "deletions": 54
+        },
+        "02_knowledge/photography/角色设计体块与素体重建.md": {
+          "additions": 455,
+          "deletions": 42
+        },
+        "03_resources/references/ai绘画审核规避实战指南.md": {
+          "additions": 35,
+          "deletions": 7
+        },
+        "02_knowledge/aigc/可灵 ai 视频生成操作手册.md": {
+          "additions": 306,
+          "deletions": 32
+        },
+        "02_knowledge/aigc/midjourney prompt construction standards.md": {
+          "additions": 605,
+          "deletions": 132
+        },
+        "00_inbox/联网搜索 给我制定一个一份 一个月的减肥计划,饮食+运动; 条件 运动我目前只能在家里,大型设备只.md": {
+          "additions": 146,
+          "deletions": 15
+        }
+      }
+    }
+  }
+}
