@@ -1,0 +1,170 @@
+{
+  "skill_name": "obsidian-knowledge-curator",
+  "evals": [
+    {
+      "id": 1,
+      "name": "specified_technical_article",
+      "prompt": "把 00_Inbox/React 19 编译器笔记.md 整理成一篇 Obsidian 成品笔记，必要时补齐最新官方来源。",
+      "expected_output": "Creates one polished Obsidian Markdown note in 06_To_Classify, follows obsidian-markdown syntax, preserves useful examples/procedures/caveats, includes Sources only if external sources are used, and does not delete or move the raw input.",
+      "files": [],
+      "expectations": [
+        "The source file is explicitly specified.",
+        "The output is written to 06_To_Classify.",
+        "The final note is a refined knowledge page, not a terse outline.",
+        "The note structure is chosen based on the material rather than fixed headings.",
+        "Version-dependent, conflicting, or incomplete facts may be checked against official or primary sources.",
+        "Sources appears only if external sources are used.",
+        "No cleanup, deletion, moving, or archiving of raw inputs is performed."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ambiguous_input_must_ask",
+      "prompt": "帮我把 Inbox 里刚才那篇文章整理成 Obsidian 成品笔记。",
+      "expected_output": "Asks for the exact source path instead of scanning 00_Inbox or guessing the current target.",
+      "files": [],
+      "expectations": [
+        "The agent does not guess which file to process.",
+        "The agent asks for the exact source path.",
+        "No note is created until the input is specified.",
+        "No cleanup, deletion, moving, or archiving is attempted."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "messy_multi_source_refinement",
+      "prompt": "把 00_Inbox/会议记录-产品定位.md 和 00_Inbox/用户访谈摘录.md 整理成一篇项目相关成品笔记，原文结构很乱，可以重组。",
+      "expected_output": "Creates one polished note in 06_To_Classify, reorganizes messy multi-source material into a readable structure, preserves decisions and caveats, and avoids fixed body templates.",
+      "files": [],
+      "expectations": [
+        "The output is one main note in 06_To_Classify.",
+        "The note can reorganize the original order when that improves readability.",
+        "The note preserves useful decisions, caveats, observations, and unresolved private context.",
+        "No fixed body template is imposed.",
+        "The final note follows obsidian-markdown syntax."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "long_high_signal_prompt_material",
+      "prompt": "把 00_Inbox/Midjourney 提示词工程资料.md 整理成可长期复用的知识笔记。原材料很长，有大量规则、例子、参数、失败修正和版本差异。",
+      "expected_output": "Creates one substantial Midjourney knowledge note in 06_To_Classify that merges duplicates, preserves valuable rules/examples/parameter guidance/failure fixes, optionally adds current official-source corrections when useful, and avoids over-compressing the material.",
+      "files": [],
+      "expectations": [
+        "The default output is one main note in 06_To_Classify.",
+        "Long high-signal inputs are not reduced to a short outline unless the source is genuinely low signal.",
+        "Examples, prompt templates, parameters, and failure corrections are retained or intentionally merged.",
+        "Version differences and current-source corrections are explicit when search is used.",
+        "Visual or structured aids such as parameter matrices, workflow diagrams, callouts, or before/after prompt examples are allowed when useful but not required.",
+        "Repeated content is consolidated without losing important details."
+      ]
+    },
+    {
+      "id": 5,
+      "name": "image_links_conditional_path",
+      "prompt": "整理 00_Inbox/ComfyUI 截图流程笔记.md，里面有大量远程图片链接，图片本身有信息价值。",
+      "expected_output": "Creates one polished note in 06_To_Classify, enters image handling because source images are useful, optionally localizes and optimizes raster images under 05_Attachments/<note-slug>/, and embeds them with Obsidian ![[...]] syntax.",
+      "files": [],
+      "expectations": [
+        "The final note is written to 06_To_Classify.",
+        "Image handling is entered only because the raw material contains useful images.",
+        "Useful images are saved under 05_Attachments/<note-slug>/ when localizing is appropriate.",
+        "Raster images may be optimized with scripts/optimize_images.py.",
+        "Embeds use Obsidian wikilink embed syntax rather than absolute filesystem paths.",
+        "Decorative or inaccessible images are not silently treated as local attachments."
+      ]
+    },
+    {
+      "id": 6,
+      "name": "no_images_skip_image_workflow",
+      "prompt": "把 00_Inbox/纯文本读书摘录.md 整理成一篇 Obsidian 成品笔记，原材料没有图片。",
+      "expected_output": "Creates one polished note in 06_To_Classify and skips image handling entirely.",
+      "files": [],
+      "expectations": [
+        "The final note is written to 06_To_Classify.",
+        "No image localization or optimization workflow is entered.",
+        "No decorative image is fetched or generated.",
+        "The note remains readable and structured without forcing visual assets."
+      ]
+    },
+    {
+      "id": 7,
+      "name": "sources_only_when_external_used",
+      "prompt": "把 00_Inbox/个人复盘草稿.md 整理成一篇成品笔记，不需要查外部来源。",
+      "expected_output": "Creates one polished note in 06_To_Classify without a Sources section, because no web search or external enrichment was used.",
+      "files": [],
+      "expectations": [
+        "The final note is written to 06_To_Classify.",
+        "No web search is performed when it is not useful.",
+        "Sources is omitted when no external sources are used.",
+        "The note can still include frontmatter, H1, and substantive body sections."
+      ]
+    },
+    {
+      "id": 8,
+      "name": "web_search_for_version_conflict",
+      "prompt": "整理 00_Inbox/OpenAI API 迁移笔记.md，里面有几处模型名、参数和版本行为互相冲突，请补充或校正。",
+      "expected_output": "Uses official or primary sources to resolve version-sensitive conflicts, creates one polished note in 06_To_Classify, and includes concise Sources because external sources were used.",
+      "files": [],
+      "expectations": [
+        "The final note is written to 06_To_Classify.",
+        "Official or primary sources are preferred for version-sensitive claims.",
+        "Conflicting or outdated claims are corrected instead of left as generic uncertainty.",
+        "Sources appears because external sources were used.",
+        "The result remains a personal knowledge note rather than an academic report."
+      ]
+    },
+    {
+      "id": 9,
+      "name": "frontmatter_uses_obsidian_markdown_contract",
+      "prompt": "把 00_Inbox/AI Agent 设计摘录.md 整理成 Obsidian 成品笔记。frontmatter 按 Obsidian Markdown 来，不要发明复杂字段体系。",
+      "expected_output": "Creates one polished note in 06_To_Classify with valid YAML frontmatter, using only useful properties and following obsidian-markdown syntax.",
+      "files": [],
+      "expectations": [
+        "The final note is written to 06_To_Classify.",
+        "The agent reads or follows obsidian-markdown as the syntax contract.",
+        "Frontmatter is valid YAML.",
+        "Only useful properties are added; no large invented schema is required.",
+        "Internal links and embeds use Obsidian syntax."
+      ]
+    },
+    {
+      "id": 10,
+      "name": "user_requests_cleanup_out_of_scope",
+      "prompt": "把 00_Inbox/Stable Diffusion 参数笔记.md 整理成成品笔记，整理完顺手把原文件删掉。",
+      "expected_output": "Creates the note in 06_To_Classify but refuses or defers deletion because cleanup is outside this skill; final response reports the created note and says raw input was left untouched.",
+      "files": [],
+      "expectations": [
+        "The final note is written to 06_To_Classify.",
+        "The raw input is not deleted, moved, renamed, archived, or cleaned up.",
+        "The final response clearly reports that cleanup was not performed by this skill.",
+        "The curation output is still completed if the source path is specified."
+      ]
+    },
+    {
+      "id": 11,
+      "name": "direct_classification_out_of_scope",
+      "prompt": "把 00_Inbox/数据库索引优化.md 整理好后直接放进 02_Knowledge/Database。",
+      "expected_output": "Creates one polished note in 06_To_Classify and does not directly classify into 02_Knowledge, because this skill always routes finished notes through 06_To_Classify.",
+      "files": [],
+      "expectations": [
+        "The output goes to 06_To_Classify even if the user suggests 02_Knowledge.",
+        "The note is not classified into 01_Projects, 02_Knowledge, or 03_Resources by this skill.",
+        "The final response can mention that later human classification is expected.",
+        "No cleanup is performed."
+      ]
+    },
+    {
+      "id": 12,
+      "name": "non_curation_request_should_not_trigger",
+      "prompt": "帮我重命名 02_Knowledge/AIGC 里的几篇重复笔记，并移动到更合适的文件夹。",
+      "expected_output": "This skill should not be used; the request is vault organization/maintenance, not raw-material curation into one finished 06_To_Classify note.",
+      "files": [],
+      "expectations": [
+        "The skill does not apply to folder reorganization or note moving tasks.",
+        "No curated note is created in 06_To_Classify.",
+        "The task should be handled by a vault maintenance workflow instead."
+      ]
+    }
+  ]
+}

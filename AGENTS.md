@@ -11,6 +11,7 @@ Apply these rules when creating, moving, renaming, or consolidating notes and fo
 - `03_Resources`: external source material, references, clips, docs, papers.
 - `04_Templates`: reusable note templates only.
 - `05_Attachments`: images, PDFs, and other attached assets.
+- `06_To_Classify`: polished but not yet reviewed notes awaiting human classification.
 - `90_System`: agent-facing rules and lightweight vault system files.
 
 ## Classification Rules
@@ -18,6 +19,7 @@ Apply these rules when creating, moving, renaming, or consolidating notes and fo
 - If content belongs to an ongoing effort, put it in `01_Projects`.
 - If content captures a stable idea, principle, method, or reusable insight, put it in `02_Knowledge`.
 - If content is mainly source material from outside the vault, put it in `03_Resources`.
+- If content has been polished by an agent but not yet reviewed by the user, put it in `06_To_Classify`.
 - Do not store long-term knowledge in `00_Inbox`.
 - Do not store raw source material in `02_Knowledge` unless it has been distilled.
 
