@@ -9,13 +9,14 @@ aliases:
   - Midjourney Prompt Engineering Guide
   - Midjourney 提示词构造指南
 status: to-classify
-source:
-  - 00_Inbox/Midjorney/midjourney_prompt_engineering.md
-  - 00_Inbox/Midjorney/midjourney-prompt-guide.md
-  - 00_Inbox/Midjorney/midjourney-prompt-best-practices.md
-  - 00_Inbox/Midjorney/midjourney_v7_best_practices.md
-  - 00_Inbox/Midjorney/Midjourney Prompt Construction Standards.md
-  - 00_Inbox/Midjorney/Midjourney 提示词规范与实践.md
+source_titles:
+  - midjourney_prompt_engineering
+  - midjourney-prompt-guide
+  - midjourney-prompt-best-practices
+  - midjourney_v7_best_practices
+  - Midjourney Prompt Construction Standards
+  - Midjourney 提示词规范与实践
+source_status: consolidated_from_deleted_inbox_materials
 ---
 
 # Midjourney 提示词工程实践手册

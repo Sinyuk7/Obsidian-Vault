@@ -1,0 +1,58 @@
+{
+  "scan_roots": [
+    "00_Inbox",
+    "01_Projects",
+    "02_Knowledge",
+    "03_Resources",
+    "04_Templates",
+    "05_Attachments",
+    "06_To_Classify"
+  ],
+  "exclude_dirs": [
+    ".git",
+    ".obsidian",
+    ".smart-env",
+    ".codex",
+    "90_System/__pycache__"
+  ],
+  "metadata_json_files": [
+    "90_System/drive_download_20260523_import_report.json"
+  ],
+  "path_keys": [
+    "source",
+    "source_file",
+    "sources",
+    "target",
+    "target_folder",
+    "duplicate_of",
+    "closest_existing",
+    "attachment",
+    "attachments"
+  ],
+  "allowed_virtual_links": [
+    "AIGC",
+    "AI Toolkit",
+    "FLUX.2 Klein",
+    "LoRA",
+    "LoRAs",
+    "Ostris AI Toolkit",
+    "Quantization",
+    "Regularization dataset",
+    "constraints",
+    "midjourney/v7",
+    "parameters",
+    "prompt-engineering",
+    "reference"
+  ],
+  "safe_fix_min_confidence": 0.98,
+  "write_wikilink_targets_as_vault_paths": true,
+  "strict_block_issue_types": [
+    "missing_wikilink",
+    "missing_embed",
+    "missing_markdown_link",
+    "absolute_frontmatter_path",
+    "stale_metadata_path",
+    "case_collision",
+    "cross_platform_filename"
+  ]
+}

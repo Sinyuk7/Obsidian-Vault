@@ -13,7 +13,7 @@ tags:
   - imported/drive-download
   - source/docx
   - status/distilled
-source_file: 'C:\Users\80998\Desktop\drive-download-20260523T041143Z-3-001\即梦Seedance审核规避技巧.docx'
+source_title: '即梦Seedance审核规避技巧.docx'
 imported: 2026-05-23
 original_format: docx
 target_folder: '03_Resources/References'
@@ -63,7 +63,7 @@ Last_Updated: 2026-05-23
 - Safe Video Prompt: adult subject if relevant；neutral or professional action；clear clothing coverage；public or fictional safe setting；camera framing；lighting；style；explicit safety boundary。
 
 ## Related
-- [[Seedance 2]]
-- [[AI视频生成标准化提示词规范]]
+- [[02_Knowledge/AIGC/Governance/敏感词规避与提示词合规治理|敏感词规避与提示词合规治理]]
+- [[02_Knowledge/AIGC/Video/AI视频生成提示词标准化规范|AI视频生成提示词标准化规范]]
 - [[ai_video_prompt_engineering]]
-- [[prohibited_guidelines]]
+- [[02_Knowledge/AIGC/Governance/敏感词规避与提示词合规治理|敏感词规避与提示词合规治理]]

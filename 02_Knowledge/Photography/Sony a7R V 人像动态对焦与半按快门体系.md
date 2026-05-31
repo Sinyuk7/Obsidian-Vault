@@ -9,7 +9,8 @@ tags:
   - autofocus
   - portrait
 status: to-classify
-source: 00_Inbox/对焦.md
+source_title: 对焦
+source_status: consolidated_from_deleted_inbox_materials
 ---
 
 # Sony a7R V 人像动态对焦与半按快门体系

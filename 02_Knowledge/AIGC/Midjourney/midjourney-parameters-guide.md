@@ -121,8 +121,8 @@ Last_Updated: 2026-03-06
 - 复杂细节仅靠 `--oref` 无法保留，必须通过文本二次描述
 
 ## Cross-Document References [Optional]
-- 提示词构造语法: [[midjourney-prompt-guide]]
-- 风格控制参数: [[midjourney-style-parameters]]
+- 提示词构造语法: [[02_Knowledge/AIGC/Midjourney/Midjourney 提示词工程实践手册|Midjourney 提示词工程实践手册]]
+- 风格控制参数: 本笔记中的 `--sref`、`--sw`、`--style` 相关参数说明
 
 # Appendix
 

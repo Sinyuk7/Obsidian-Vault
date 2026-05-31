@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+set -eu
+
+python -X utf8 90_System/vault_integrity.py check --strict --staged

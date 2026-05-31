@@ -12,9 +12,10 @@ tags:
   - film-look
   - CG
 status: curated
-source:
-  - 00_Inbox/电影感/Photoshop Cinematic and CG Look Guide.md
-  - 00_Inbox/电影感/Photoshop Cinematic Look Principles.md
+source_titles:
+  - Photoshop Cinematic and CG Look Guide
+  - Photoshop Cinematic Look Principles
+source_status: consolidated_from_deleted_inbox_materials
 created: 2026-05-31
 ---
 
@@ -269,5 +270,5 @@ flowchart TD
 
 ## 输入材料
 
-- [[Photoshop Cinematic and CG Look Guide]]
-- [[Photoshop Cinematic Look Principles]]
+- Photoshop Cinematic and CG Look Guide（已合并入本笔记）
+- Photoshop Cinematic Look Principles（已合并入本笔记）

@@ -43,6 +43,7 @@ If the user does not name the input file or files, ask for the exact source path
 6. If the raw material contains useful images, screenshots, diagrams, or image links, use the image handling rules below. If not, skip image handling entirely.
 7. Write the note to `06_To_Classify/`.
 8. Validate the output for readable structure, retained substance, valid Obsidian Markdown, valid YAML frontmatter, and working relative embeds.
+9. From the vault root, run `python -X utf8 90_System\vault_integrity.py check` after writing the note. Fix any issue caused by the new note before reporting completion. Existing unrelated vault issues may be reported separately.
 
 ## Note Shape
 

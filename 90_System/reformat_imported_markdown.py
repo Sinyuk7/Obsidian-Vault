@@ -2,11 +2,21 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
 
 VAULT = Path(__file__).resolve().parents[1]
 REPORT = VAULT / "90_System" / "drive_download_20260523_import_report.json"
+if str(VAULT / "90_System") not in sys.path:
+    sys.path.insert(0, str(VAULT / "90_System"))
+
+try:
+    from vault_integrity import VaultIndex, load_config, split_wikilink
+except ImportError:  # pragma: no cover - lets the old formatter remain runnable if copied alone.
+    VaultIndex = None  # type: ignore[assignment]
+    load_config = None  # type: ignore[assignment]
+    split_wikilink = None  # type: ignore[assignment]
 
 
 def split_frontmatter(text: str) -> tuple[str, str]:
@@ -202,10 +212,26 @@ def related_links(title: str, tags: list[str]) -> list[str]:
     return [link for link in links if not (link in seen or seen.add(link))]
 
 
+def filter_resolvable_links(links: list[str]) -> list[str]:
+    if not links or VaultIndex is None or load_config is None or split_wikilink is None:
+        return links
+    index = VaultIndex(load_config())
+    resolvable: list[str] = []
+    for link in links:
+        match = re.match(r"^(!?)\[\[([^\]\n]+)\]\]$", link)
+        if not match:
+            continue
+        target, _heading, _display = split_wikilink(match.group(2))
+        status, _matches = index.resolve_wikilink(target, VAULT / "AGENTS.md", bool(match.group(1)))
+        if status == "ok":
+            resolvable.append(link)
+    return resolvable
+
+
 def build_overview(item: dict[str, object], tags: list[str], headings: list[str]) -> str:
     title = str(item["title"])
     folder = str(Path(str(item["target"])).parent).replace("\\", "/")
-    links = related_links(title, tags)
+    links = filter_resolvable_links(related_links(title, tags))
     lines = [
         f"# {title}",
         "",

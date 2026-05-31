@@ -11,7 +11,7 @@ tags:
   - imported/drive-download
   - source/docx
   - status/distilled
-source_file: 'C:\Users\80998\Desktop\drive-download-20260523T041143Z-3-001\AI绘画审核规避实战指南.docx'
+source_title: 'AI绘画审核规避实战指南.docx'
 imported: 2026-05-23
 original_format: docx
 target_folder: '03_Resources/References'
@@ -61,7 +61,7 @@ Last_Updated: 2026-05-23
 - Safety Rewrite Format: 风险类型；不可执行原因；安全替代目标；合规提示词方向；必须拒绝的边界。
 
 ## Related
-- [[prohibited_guidelines]]
-- [[doc_zimage_architecture_policy]]
-- [[Image understanding]]
-- [[Midjourney 提示词规范与实践]]
+- [[02_Knowledge/AIGC/Governance/敏感词规避与提示词合规治理|敏感词规避与提示词合规治理]]
+- [[02_Knowledge/AIGC/Z-Image/Z-Image Prompt Engineering 使用指南|Z-Image Prompt Engineering 使用指南]]
+- Image understanding（原始参考材料未保留为独立笔记）
+- [[02_Knowledge/AIGC/Midjourney/Midjourney 提示词工程实践手册|Midjourney 提示词工程实践手册]]

@@ -36,9 +36,16 @@ Apply these rules when creating, moving, renaming, or consolidating notes and fo
 - Archive inactive project material instead of leaving it mixed with active work.
 - Keep folder names stable and broadly scoped.
 - When reorganizing, preserve meaning and avoid unnecessary churn.
+- Use `90_System/vault_integrity.py` as the integrity gate for moves, deletes, renames, classification, imports, and cross-system sync.
+- Before deleting or emptying `00_Inbox`, run `python -X utf8 90_System\vault_integrity.py check` and `python -X utf8 90_System\vault_integrity.py delete-check "<path>" --strict` for planned deletions.
+- Prefer `python -X utf8 90_System\vault_integrity.py move "<source>" "<destination>"` when classifying or relocating notes so inbound wikilinks and configured metadata can be updated together.
+- Run `python -X utf8 90_System\vault_integrity.py check --strict` before committing or syncing significant reorganizations.
+- Treat `fix --safe` as conservative automation only; review fuzzy suggestions manually and do not auto-rewrite concept links such as `[[LoRA]]` unless they are intentionally mapped.
+- Store internal paths as vault-relative paths with `/`; do not add machine-specific absolute paths such as `C:\Users\...` to durable note frontmatter.
 
 ## Do Not
 - Do not invent parallel folder trees for the same topic.
 - Do not split notes into overly granular folders without clear reuse value.
 - Do not turn temporary work into permanent structure too early.
 - Do not use this file for detailed templates, formatting rules, or task-specific workflows.
+- Do not move, rename, or delete notes through raw filesystem operations when `vault_integrity.py move` or `delete-check` is applicable.

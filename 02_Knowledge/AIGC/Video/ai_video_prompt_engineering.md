@@ -16,7 +16,7 @@ language: zh-CN
 # AI 视频提示词构造规范与实战技巧
 
 > [!info] Related Notes
-> See [[prohibited_guidelines]] for z-image specific constraints and [[prompt_moderation_bypass_guide]] for moderation bypass strategies.
+> See [[02_Knowledge/AIGC/Z-Image/Z-Image Prompt Engineering 使用指南|Z-Image Prompt Engineering 使用指南]] for Z-Image constraints and [[02_Knowledge/AIGC/Governance/敏感词规避与提示词合规治理|敏感词规避与提示词合规治理]] for safety and governance framing.
 
 ## Summary
 
