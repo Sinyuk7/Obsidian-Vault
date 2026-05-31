@@ -33,54 +33,35 @@ If the user does not name the input file or files, ask for the exact source path
 
 1. Read only the source file or files the user specified.
 2. Read `../obsidian-markdown/SKILL.md` before writing the final note. Treat it as the syntax contract.
-3. Build a useful refined version of the material:
+3. Read `knowledge/Obsidian Markdown Visual Curation Guidelines.md` before shaping the final note. Treat it as the visual curation guide, not as a second syntax contract.
+4. Build a useful refined version of the material:
    - infer a clear structure when the raw material is messy, unstructured, or assembled from multiple sources
    - preserve the original material's useful substance, not necessarily its original order
    - remove capture noise, duplicated paragraphs, irrelevant boilerplate, and empty filler
    - keep enough detail that the final note can be used without reopening the raw source
-4. Search official or primary sources when current facts, version behavior, conflicting claims, or missing context would materially improve the note. Proactive enrichment is allowed when it makes the note more useful, but do not turn every task into a research report.
-5. If the raw material contains useful images, screenshots, diagrams, or image links, use the image handling rules below. If not, skip image handling entirely.
-6. Write the note to `06_To_Classify/`.
-7. Validate the output for readable structure, retained substance, valid Obsidian Markdown, valid YAML frontmatter, and working relative embeds.
+5. Search official or primary sources when current facts, version behavior, conflicting claims, or missing context would materially improve the note. Proactive enrichment is allowed when it makes the note more useful, but do not turn every task into a research report.
+6. If the raw material contains useful images, screenshots, diagrams, or image links, use the image handling rules below. If not, skip image handling entirely.
+7. Write the note to `06_To_Classify/`.
+8. Validate the output for readable structure, retained substance, valid Obsidian Markdown, valid YAML frontmatter, and working relative embeds.
 
 ## Note Shape
 
 The body should be a refined, readable knowledge page. It can reorganize the source, combine multiple inputs, add helpful transitions, and use tables, callouts, diagrams, or images when they improve comprehension.
 
-Required:
+Use `knowledge/Obsidian Markdown Visual Curation Guidelines.md` for detailed note-shape and visual rhythm decisions. Keep this section short so the skill stays compact.
+
+Minimum requirements:
 
 - valid YAML frontmatter at the top
 - one H1 title
 - substantive body sections shaped by the material
 - `## Sources` only when web search or external sources were actually used
 
-Recommended when useful:
-
-- tables for comparisons, parameters, trade-offs, or version differences
-- callouts for warnings, caveats, important conclusions, or unresolved private context
-- code blocks for commands, prompts, templates, exact syntax, or examples
-- Mermaid diagrams for processes, relationships, or decision flows
-- local image embeds for information-bearing visuals from the source material
-
 Do not add fixed sections just because this skill mentions them. 正文标准是图文并茂、阅读舒适、信息完整、可复用。
 
 ## Obsidian Markdown Essentials
 
-Use `../obsidian-markdown/SKILL.md` as the source of truth. These essentials are repeated here to reduce mistakes during curation:
-
-```markdown
-[[Note Name]]
-[[Note Name|Display Text]]
-[[Note Name#Heading]]
-![[05_Attachments/note-slug/image-01.webp]]
-![[image.png|300]]
-
-> [!note]
-> Useful highlighted context.
-
-> [!warning] Caveat
-> Important limitation or risk.
-```
+Use `../obsidian-markdown/SKILL.md` as the source of truth. Do not duplicate a separate Obsidian syntax guide inside this skill.
 
 Frontmatter must be valid YAML. Add only properties that help the note, such as `title`, `tags`, `aliases`, `source`, or `status`; do not invent a large schema.
 
@@ -117,6 +98,7 @@ Do not report source cleanup because this skill never performs cleanup.
 
 ## Bundled Resources
 
+- `knowledge/Obsidian Markdown Visual Curation Guidelines.md` - detailed note-shape and visual curation guidance.
 - `references/image-assets.md` - optional image localization and compression guidance.
 - `scripts/optimize_images.py` - optional raster image optimization helper.
 - `evals/evals.json` - behavior checks for this workflow.

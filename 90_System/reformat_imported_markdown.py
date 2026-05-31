@@ -195,7 +195,7 @@ def related_links(title: str, tags: list[str]) -> list[str]:
     if any(k in probe for k in ["zimage", "z-image"]):
         links += ["[[z-image_prompt_knowledge]]"]
     if any(k in probe for k in ["photoshop", "photography", "cinematic", "摄影"]):
-        links += ["[[Photoshop Cinematic Look Principles]]", "[[Photoshop Cinematic and CG Look Guide]]", "[[高级人像构图深度研究]]"]
+        links += ["[[Photoshop Cinematic Look Principles]]", "[[Photoshop Cinematic and CG Look Guide]]", "[[LoL 原画风格摄影转译与高级人像构图]]"]
     if "prompt" in probe or "提示词" in probe:
         links += ["[[提示词]]"]
     seen = set()
