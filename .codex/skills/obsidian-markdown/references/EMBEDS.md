@@ -58,6 +58,6 @@ Where the list has a block ID:
 
 ````markdown
 ```query
-tag:#project status:done
+tag:#project
 ```
 ````

@@ -8,7 +8,6 @@ tags:
   - AIGC/Z-Image
   - AIGC/Prompt-Engineering
   - model-notes
-status: to-classify
 created: 2026-05-31
 updated: 2026-05-31
 source_files:

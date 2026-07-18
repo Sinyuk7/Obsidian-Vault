@@ -7,7 +7,6 @@ tags:
   - Photography/Composition
   - League-of-Legends
   - visual-design
-status: curated
 aliases:
   - LoL 摄影转译
   - 高级人像构图手册

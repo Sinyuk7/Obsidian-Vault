@@ -8,7 +8,6 @@ tags:
 aliases:
   - Midjourney Prompt Engineering Guide
   - Midjourney 提示词构造指南
-status: to-classify
 source_titles:
   - midjourney_prompt_engineering
   - midjourney-prompt-guide

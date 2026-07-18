@@ -1,31 +1,32 @@
 ---
 name: obsidian-knowledge-curator
-description: Turn one or more user-specified raw materials from this Obsidian vault into one polished, readable, image-friendly Obsidian Markdown note in 06_To_Classify. Use only when the user explicitly names the source file or files to curate. For 00_Inbox inputs, add an auditable curation marker that identifies the finished note without deleting the raw material. The skill preserves unique reusable substance while compressing noise and duplicates, may enrich or verify content with web search when useful, follows Obsidian Markdown syntax, and only enters image handling when the raw material contains useful images or image links.
+description: Turn one or more user-specified raw materials from 00_Inbox into one or more polished, readable, image-friendly Obsidian Markdown notes in 06_To_Classify, then delete the specified raw notes after every output, visual asset, and reference check passes. Use only when the user explicitly names the source file or files to curate. The skill preserves unique reusable substance while compressing noise and duplicates, may enrich or verify content with web search when useful, follows Obsidian Markdown syntax, and preserves useful source visuals.
 ---
 
 # Obsidian Knowledge Curator
 
-Turn specified raw material into one finished Obsidian note. The output always goes to `06_To_Classify/` for later human classification.
+Turn specified raw material into one or more finished Obsidian notes. Every output goes to `06_To_Classify/` for later human classification.
 
-This skill does not import, delete, move, or archive raw inputs. It marks successfully curated `00_Inbox/` inputs so a separate, user-confirmed cleanup pass can identify them.
+This skill turns explicitly named `00_Inbox/` raw notes into one or more review-ready notes, then moves the raw notes to the Obsidian trash after validation.
 
 ## Use Only When
 
 - The user explicitly names one or more source files, notes, or raw materials.
+- Every source is a Markdown note under `00_Inbox/`.
 - The requested result is a polished Obsidian knowledge note.
-- The output should be one review-ready Markdown note in `06_To_Classify/`.
+- The output should be one or more review-ready Markdown notes in `06_To_Classify/`.
 
 If the user does not name the input file or files, ask for the exact source path instead of scanning `00_Inbox/` and guessing.
 
 ## Core Rules
 
-- Output exactly one main note by default. Split only if the user asks or the sources clearly contain separate standalone topics.
-- Write the final note to `06_To_Classify/<clear-note-title>.md`.
+- Cluster source units by retrieval intent before drafting. Write one note per independent, reusable cluster; produce one or more notes as the material requires.
+- Keep same-question conflicts in one note when source differences can be scoped, compared, or corrected. Split only when clusters answer different reader questions and each can stand alone with its own title and body.
+- Write every final note to `06_To_Classify/<clear-note-title>.md`.
 - Do not classify the finished note into `01_Projects/`, `02_Knowledge/`, or `03_Resources`.
-- Do not delete, move, rename, archive, or otherwise clean source files.
-- After the finished note has been written and validated, add or update only the YAML frontmatter of every `00_Inbox/` source with `curation_status: curated`, `curated_note: "[[06_To_Classify/<clear-note-title>]]"`, and `curated_at: "YYYY-MM-DD"`.
-- Preserve source body text and existing unrelated frontmatter. Do not add these tracking properties to sources outside `00_Inbox/`.
-- If an Inbox source already has `curation_status: curated`, verify its `curated_note` first. Do not overwrite that marker or create a duplicate curation output without the user's direction.
+- For every useful source image, screenshot, diagram, or accessible image link, localize a copy or optimized derivative to `05_Attachments/<note-slug>/`, embed it near the relevant explanation, and include a caption or observation.
+- Delete every specified raw note only after every output, required visual asset, and deletion preflight succeeds. Use `obsidian delete path="<source-path>"`; do not use `permanent`.
+- If output writing, validation, or any deletion preflight fails, leave every source note untouched and report the failure.
 - Use Chinese by default. Keep Proper Nouns and source titles in their original language.
 - Treat `00_Inbox/` inputs as transient raw materials that may be deleted later; do not create durable links or frontmatter source references to them.
 - Create a higher-density note, not a shorter-at-any-cost summary.
@@ -45,31 +46,28 @@ If the user does not name the input file or files, ask for the exact source path
    - duplicated or overlapping units that can be merged
    - noisy, irrelevant, boilerplate, empty, or superseded material that can be removed
    - gaps, conflicts, or outdated claims that would benefit from official or primary-source verification
-5. Build a useful refined version of the material:
+   - useful visuals, their source path or URL, and whether they can be localized
+5. Group the inventoried units by retrieval intent. Merge units that answer the same reader question. Split units only when they form independent, reusable topics. Record same-topic conflicts for comparison or correction within the relevant note.
+6. Build one useful refined note per cluster:
    - infer a clear structure when the raw material is messy, unstructured, or assembled from multiple sources
    - preserve unique useful substance, not necessarily the original order or wording
    - compress repeated, noisy, irrelevant, boilerplate, and empty material without losing useful distinctions
    - keep long but valuable details in tables, code blocks, folded callouts, or appendix-like sections when they would interrupt the main reading path
    - keep enough detail that the final note can be used without reopening the raw source
-6. Search official or primary sources when current facts, version behavior, conflicting claims, or missing context would materially improve the note. Proactive enrichment is allowed when it makes the note more useful, but do not turn every task into a research report.
-7. If the raw material contains useful images, screenshots, diagrams, or image links, use the image handling rules below. If not, skip image handling entirely.
-8. Write the note to `06_To_Classify/` without durable references to transient input paths.
-9. Audit the output for source coverage, transient input references, language quality, knowledge value, valid Obsidian Markdown, valid YAML frontmatter, and working relative embeds.
-10. After the output is valid, mark each `00_Inbox/` input in its YAML frontmatter with `curation_status`, `curated_note`, and `curated_at`. Do not mark a source if writing or validating the output failed.
-11. From the vault root, run `python -X utf8 90_System\vault_integrity.py check` after writing the note and markers. Fix any issue caused by the new note or marker before reporting completion. Existing unrelated vault issues may be reported separately.
+7. Search official or primary sources when current facts, version behavior, conflicting claims, or missing context would materially improve the notes. Proactive enrichment is allowed when it makes the notes more useful, but do not turn every task into a research report.
+8. Localize and embed every useful source visual. Prefer an optimized derivative, but embed a local original when optimization would lose it or fail. If a material visual cannot be retained, do not delete the raw notes.
+9. Write every note to `06_To_Classify/` without durable references to transient input paths.
+10. Audit every output for cluster coverage, transient input references, language quality, knowledge value, valid Obsidian Markdown, valid YAML frontmatter, working relative embeds, and usable local visual assets.
+11. From the vault root, run `python -X utf8 90_System/vault_integrity.py check --strict`. Fix any issue caused by the new notes or assets before continuing. Existing unrelated issues that make this command fail block deletion.
+12. Run `python -X utf8 90_System/vault_integrity.py delete-check "<source-path>" --strict` for every source. If every command succeeds, run `obsidian delete path="<source-path>"` for every source.
 
-## Inbox Tracking And Cleanup
+## Source Deletion
 
-The source marker is an audit record, not automatic permission to delete. It lets the user see exactly which Inbox materials have a verified curated output while keeping the finished note independent of disposable inputs.
-
-- Find marked candidates with `rg -l '^curation_status:\s*curated\s*$' 00_Inbox`.
-- Before deleting any candidate, confirm its `curated_note` resolves, run `python -X utf8 90_System\vault_integrity.py check --strict`, then run `python -X utf8 90_System\vault_integrity.py delete-check "<source-path>" --strict`.
-- Delete only in a separate, explicit user-confirmed cleanup request. Never delete as part of curation, even when the user asks for it in the same prompt.
-- If the source marker cannot be safely written, report the source as unmarked. Do not claim it is ready for cleanup.
+Deletion is part of a successful curation, not a separate cleanup phase. The source notes go to the Obsidian trash and remain recoverable there. Never delete only some sources from a multi-source curation: a failed output, visual-asset check, or deletion preflight leaves every source in place.
 
 ## Transient Inputs And Sources
 
-The user-specified vault files are raw material for this curation pass, not stable citations. This is especially true for `00_Inbox/`, which is a temporary capture area that receives a source-side curation marker and may be deleted later in a separate cleanup pass.
+The user-specified `00_Inbox/` notes are raw material for this curation pass, not stable citations. They are deleted after every finished note, useful visual, and deletion preflight succeeds.
 
 - Do not add `00_Inbox/...` paths to frontmatter properties such as `source`, `sources`, `origin`, or `related`.
 - Do not create wikilinks or Markdown links to `00_Inbox/...` files in the final note.
@@ -94,21 +92,23 @@ Use these rules when deciding what to keep, merge, compress, or remove:
 Before considering the note finished, check:
 
 - Coverage: each unique high-value source unit is retained, merged intentionally, corrected with a source, or removed for a clear reason.
+- Partitioning: each output answers one coherent reader question; independent topics are not forced into one note, and same-topic conflicts are compared or corrected instead of silently split.
 - Transient references: the finished note contains no durable links, frontmatter values, or `## Sources` entries pointing to `00_Inbox/` raw inputs.
+- Visuals: every useful source visual is embedded near its explanation from a valid local path, or its retention failure blocks source deletion.
 - Language: Chinese prose is natural and precise; translated or merged material does not create grammar errors or vague claims.
 - Value: the note is more navigable, accurate, and reusable than the raw source, not merely shorter.
-- Inbox tracking: every successfully curated `00_Inbox/` source has valid `curation_status`, `curated_note`, and `curated_at` frontmatter; the finished note has no reverse link to those sources.
+- Source removal: every specified `00_Inbox/` source has passed `delete-check --strict` and was moved to the Obsidian trash; the finished note has no reverse link to those sources.
 
 ## Note Shape
 
-The body should be a refined, readable knowledge page. It can reorganize the source, combine multiple inputs, add helpful transitions, and use tables, callouts, diagrams, or images when they improve comprehension.
+Each body should be a refined, readable knowledge page. It can reorganize source material within its cluster, add helpful transitions, and use tables, callouts, diagrams, or images when they improve comprehension.
 
 Use `knowledge/Obsidian Markdown Visual Curation Guidelines.md` for detailed note-shape and visual rhythm decisions. Keep this section short so the skill stays compact.
 
 Minimum requirements:
 
 - valid YAML frontmatter at the top
-- one H1 title
+- one H1 title per output
 - substantive body sections shaped by the material
 - `## Sources` only when web search or external sources were actually used
 
@@ -118,7 +118,7 @@ Do not add fixed sections just because this skill mentions them. 正文标准是
 
 Use `../obsidian-markdown/SKILL.md` as the source of truth. Do not duplicate a separate Obsidian syntax guide inside this skill.
 
-Frontmatter must be valid YAML. Add only properties that help the note, such as `title`, `tags`, `aliases`, or `status`; do not invent a large schema. Do not use `source` or similar provenance fields for transient vault inputs such as `00_Inbox/...`.
+Frontmatter must be valid YAML. Add only properties that help the note, such as `title`, `tags`, or `aliases`; do not invent a large schema. Do not use `source` or similar provenance fields for transient vault inputs such as `00_Inbox/...`.
 
 Use wikilinks for internal vault notes and standard Markdown links for external URLs.
 
@@ -135,10 +135,10 @@ Web search is allowed when it improves the final note:
 
 ## Images
 
-Image handling is conditional, not core. Enter this path only when the specified raw material contains useful images, screenshots, diagrams, or image links.
+Image handling is required when the specified raw material contains useful images, screenshots, diagrams, or accessible image links.
 
 - Do not fetch decorative images just to make the note look richer.
-- Preserve and localize visuals that explain the content.
+- Preserve and localize every visual that explains the content. Embed it adjacent to the explanation with a caption or observation.
 - Use `references/image-assets.md` for image handling guidance.
 - Use `scripts/optimize_images.py` for raster optimization when local images would otherwise be too large.
 - Embed local images with Obsidian syntax such as `![[05_Attachments/note-slug/image-01.webp]]`.
@@ -147,12 +147,12 @@ Image handling is conditional, not core. Enter this path only when the specified
 
 Report only:
 
-- created note path
-- marked Inbox source paths, if any
+- created note paths
+- deleted source paths
 - external sources used, if any
-- localized or optimized attachment files, if any
+- localized or optimized attachment files
 
-State that source cleanup was not performed. If an Inbox source could not be marked, state that clearly.
+If any deletion preflight failed, state that the sources were retained.
 
 ## Bundled Resources
 

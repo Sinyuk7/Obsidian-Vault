@@ -8,7 +8,6 @@ tags:
   - sony-alpha
   - autofocus
   - portrait
-status: to-classify
 source_title: 对焦
 source_status: consolidated_from_deleted_inbox_materials
 ---

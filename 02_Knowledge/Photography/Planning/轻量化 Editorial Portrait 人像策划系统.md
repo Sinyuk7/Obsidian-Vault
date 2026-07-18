@@ -5,7 +5,6 @@ tags:
   - portrait
   - editorial
   - workflow
-status: to-classify
 source_paths:
   - 00_Inbox/个体与微型团队人像摄影师的 Editorial Portrait 策划研究 .md
   - 00_Inbox/独立人像摄影师轻量化拍摄前期策划与工作流深度解析.md

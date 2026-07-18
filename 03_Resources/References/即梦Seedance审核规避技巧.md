@@ -17,7 +17,6 @@ source_title: '即梦Seedance审核规避技巧.docx'
 imported: 2026-05-23
 original_format: docx
 target_folder: '03_Resources/References'
-status: distilled
 safety_review_required: true
 ---
 

@@ -9,7 +9,7 @@ Use this reference when a curated note needs local images or image-like attachme
 - Avoid creating unnecessary duplicate final attachments.
 - Keep Obsidian embeds stable and relative to the vault root.
 - Support informational visuals when the source material contains them.
-- Never delete, move, or clean raw source files as part of image handling.
+- Localize every useful image before the curation workflow deletes the raw source note.
 
 ## Default Policy
 
@@ -18,8 +18,9 @@ Use this reference when a curated note needs local images or image-like attachme
 - Keep SVG as SVG when it is already clean and trusted.
 - Skip animated GIF conversion unless the user explicitly accepts losing animation or provides a video/WebP animation workflow.
 - Do not download or preserve decorative images just to make a note look richer.
-- When source images, screenshots, diagrams, or UI captures explain the topic, treat them as first-class content. Localize them when access is allowed.
+- When source images, screenshots, diagrams, or UI captures explain the topic, treat them as first-class content. Localize a copy or optimized derivative and embed it near the relevant explanation.
 - When no useful source image exists, do not create or fetch images just to satisfy an aesthetic expectation.
+- If a material visual cannot be localized, retain the raw source note instead of silently dropping the visual and deleting its context.
 
 ## Optimization Script
 
@@ -59,7 +60,7 @@ Do not embed local files with absolute paths.
 
 ## Originals
 
-- If the original image is a raw input or downloaded source image, leave it untouched unless the user separately asks for cleanup.
+- Keep original image assets unless the user separately asks to clean them up; deleting the raw source note does not delete its attachments. Copy useful originals or write optimized derivatives to `05_Attachments/<note-slug>/` before deleting the note.
 - If the original has source value and the user asks to preserve it as a resource, place that copy under `03_Resources/<note-slug>/` and embed the optimized derivative from `05_Attachments/<note-slug>/`.
 - If optimization is skipped because the result is larger or visually worse, embed the original only when its size is acceptable and it carries important information.
 

@@ -78,7 +78,7 @@ def build_frontmatter(old_fm: str, item: dict[str, object]) -> str:
     title = str(item["title"])
     aliases = normalize_aliases(title, parse_list(old_fm, "aliases"))
     tags = parse_list(old_fm, "tags") or list(item.get("tags", []))
-    tags = sorted(dict.fromkeys(tags + ["status/imported"]))
+    tags = sorted(dict.fromkeys(tags))
     source_file = parse_scalar(old_fm, "source_file")
     imported = parse_scalar(old_fm, "imported")
     target_folder = parse_scalar(old_fm, "target_folder")
@@ -103,7 +103,6 @@ def build_frontmatter(old_fm: str, item: dict[str, object]) -> str:
     lines.append(f"original_format: {original_format}")
     if target_folder:
         lines.append(f"target_folder: {yaml_quote(target_folder)}")
-    lines.append("status: imported")
     lines.append(f"safety_review_required: {safety}")
     lines.append("---")
     return "\n".join(lines)

@@ -14,7 +14,6 @@ aliases:
   - Alternative Name
 cssclasses:
   - custom-class
-status: in-progress
 rating: 4.5
 completed: false
 due: 2024-02-01T14:30:00

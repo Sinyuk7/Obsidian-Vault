@@ -8,7 +8,6 @@ tags:
   - League-of-Legends
   - character-art
   - visual-design
-status: curated
 aliases:
   - LoL 原画风格系统
   - League of Legends Splash Art Style System

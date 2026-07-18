@@ -10,7 +10,6 @@ tags:
 aliases:
   - Nano Banana 提示词规范
   - NB Prompt Engineering Guide
-status: active
 version: 1.0.0
 ---
 

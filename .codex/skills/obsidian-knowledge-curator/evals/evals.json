@@ -5,7 +5,7 @@
       "id": 1,
       "name": "specified_technical_article",
       "prompt": "把 00_Inbox/React 19 编译器笔记.md 整理成一篇 Obsidian 成品笔记，必要时补齐最新官方来源。",
-      "expected_output": "Creates one polished Obsidian Markdown note in 06_To_Classify, follows obsidian-markdown syntax, preserves useful examples/procedures/caveats while compressing noise, marks the Inbox raw input with the curated output, includes Sources only if external sources are used, and does not delete or move the raw input.",
+      "expected_output": "Creates one polished Obsidian Markdown note in 06_To_Classify, follows obsidian-markdown syntax, preserves useful examples/procedures/caveats while compressing noise, includes Sources only if external sources are used, then moves the specified Inbox raw input to the Obsidian trash after all checks pass.",
       "files": [],
       "expectations": [
         "The source file is explicitly specified.",
@@ -16,8 +16,8 @@
         "Version-dependent, conflicting, or incomplete facts may be checked against official or primary sources.",
         "Sources appears only if external sources are used.",
         "The finished note does not add 00_Inbox paths to frontmatter, body links, wikilinks, or Sources.",
-        "The Inbox input has curation_status, curated_note, and curated_at frontmatter pointing to the finished note.",
-        "No cleanup, deletion, moving, or archiving of raw inputs is performed."
+        "vault_integrity check --strict and delete-check --strict pass before deletion.",
+        "The specified Inbox input is moved to the Obsidian trash, not permanently deleted."
       ]
     },
     {
@@ -30,7 +30,7 @@
         "The agent does not guess which file to process.",
         "The agent asks for the exact source path.",
         "No note is created until the input is specified.",
-        "No cleanup, deletion, moving, or archiving is attempted."
+        "No source deletion is attempted."
       ]
     },
     {
@@ -44,6 +44,7 @@
         "The note can reorganize the original order when that improves readability.",
         "The note preserves useful decisions, caveats, observations, and unresolved private context.",
         "The note absorbs the specified Inbox materials without creating durable references back to 00_Inbox paths.",
+        "Both sources are moved to the Obsidian trash only after all deletion preflights pass.",
         "No fixed body template is imposed.",
         "The final note follows obsidian-markdown syntax."
       ]
@@ -70,13 +71,13 @@
       "id": 5,
       "name": "image_links_conditional_path",
       "prompt": "整理 00_Inbox/ComfyUI 截图流程笔记.md，里面有大量远程图片链接，图片本身有信息价值。",
-      "expected_output": "Creates one polished note in 06_To_Classify, enters image handling because source images are useful, optionally localizes and optimizes raster images under 05_Attachments/<note-slug>/, and embeds them with Obsidian ![[...]] syntax.",
+      "expected_output": "Creates one polished note in 06_To_Classify, localizes every useful source image under 05_Attachments/<note-slug>/, and embeds each image with an explanation or caption before source deletion.",
       "files": [],
       "expectations": [
         "The final note is written to 06_To_Classify.",
-        "Image handling is entered only because the raw material contains useful images.",
-        "Useful images are saved under 05_Attachments/<note-slug>/ when localizing is appropriate.",
-        "Raster images may be optimized with scripts/optimize_images.py.",
+        "Every useful source image is saved under 05_Attachments/<note-slug>/ and embedded near the relevant explanation.",
+        "Raster images are optimized with scripts/optimize_images.py when that preserves their value; otherwise a local original is embedded.",
+        "Source deletion occurs only after local asset paths and embeds validate.",
         "Embeds use Obsidian wikilink embed syntax rather than absolute filesystem paths.",
         "Decorative or inaccessible images are not silently treated as local attachments."
       ]
@@ -141,16 +142,16 @@
     },
     {
       "id": 10,
-      "name": "user_requests_cleanup_is_separate",
+      "name": "successful_curation_deletes_source",
       "prompt": "把 00_Inbox/Stable Diffusion 参数笔记.md 整理成成品笔记，整理完顺手把原文件删掉。",
-      "expected_output": "Creates the note in 06_To_Classify, marks the Inbox source with the curated output, but does not delete it because cleanup is a separate user-confirmed operation.",
+      "expected_output": "Creates the note in 06_To_Classify, then moves the Inbox source to the Obsidian trash after output validation and deletion preflights pass.",
       "files": [],
       "expectations": [
         "The final note is written to 06_To_Classify.",
-        "The raw input is not deleted, moved, renamed, archived, or cleaned up.",
-        "The raw input is marked with curation_status: curated, curated_note, and curated_at after output validation.",
+        "vault_integrity check --strict and delete-check --strict pass before source deletion.",
+        "The raw input is moved to the Obsidian trash without permanent deletion.",
         "The final note does not preserve a durable link to the soon-to-be-deleted 00_Inbox raw input.",
-        "The final response lists the marked Inbox source and clearly reports that cleanup was not performed.",
+        "The final response lists the deleted source.",
         "The curation output is still completed if the source path is specified."
       ]
     },
@@ -163,9 +164,9 @@
       "expectations": [
         "The output goes to 06_To_Classify even if the user suggests 02_Knowledge.",
         "The note is not classified into 01_Projects, 02_Knowledge, or 03_Resources by this skill.",
-        "The Inbox input is marked with curation_status, curated_note, and curated_at after output validation.",
+        "The Inbox input is moved to the Obsidian trash after all deletion preflights pass.",
         "The final response can mention that later human classification is expected.",
-        "No cleanup is performed."
+        "The source deletion is reported."
       ]
     },
     {
@@ -222,33 +223,69 @@
         "The note does not include frontmatter fields such as source, sources, origin, or related that point to 00_Inbox files.",
         "The note does not add Markdown links or wikilinks to 00_Inbox files.",
         "Sources is omitted unless external web or primary sources were actually used, and never lists the Inbox inputs.",
-        "Both Inbox inputs are marked with curation_status, curated_note, and curated_at after output validation.",
-        "The final response may mention the created note path and marked inputs but does not claim source cleanup was performed."
+        "Both Inbox inputs are moved to the Obsidian trash only after all deletion preflights pass.",
+        "The final response reports the created note path and deleted inputs."
       ]
     },
     {
       "id": 16,
-      "name": "existing_inbox_marker_prevents_duplicate_curation",
-      "prompt": "把 00_Inbox/已整理的笔记.md 再整理成一篇成品笔记。该文件的 frontmatter 已有 curation_status: curated 和 curated_note。",
-      "expected_output": "Verifies the existing curated_note and asks for direction instead of replacing the marker or creating a duplicate output.",
+      "name": "inbound_reference_blocks_source_deletion",
+      "prompt": "把 00_Inbox/仍被其他笔记链接的资料.md 整理成成品笔记，但 delete-check --strict 发现它有入链。",
+      "expected_output": "Creates no destructive side effect when the deletion preflight finds inbound links: the raw source remains in Inbox and the failed check is reported.",
       "files": [],
       "expectations": [
-        "The agent checks whether the existing curated_note resolves.",
-        "The existing curation_status, curated_note, and curated_at values are not overwritten.",
-        "No duplicate note is created without user direction.",
-        "No cleanup, deletion, moving, or archiving is performed."
+        "The source is not deleted or moved to trash.",
+        "The final response identifies the failed deletion preflight.",
+        "No permanent deletion is attempted."
       ]
     },
     {
       "id": 17,
-      "name": "failed_curation_does_not_mark_inbox_source",
+      "name": "failed_curation_does_not_delete_inbox_source",
       "prompt": "把 00_Inbox/损坏的输入.md 整理成成品笔记，但写入 06_To_Classify 失败。",
-      "expected_output": "Reports the failed output and leaves the Inbox source unmarked, so it cannot be mistaken for a cleanup candidate.",
+      "expected_output": "Reports the failed output and leaves the Inbox source untouched.",
       "files": [],
       "expectations": [
-        "The agent does not add curation_status, curated_note, or curated_at to the source after an output failure.",
-        "The final response clearly says that the source was not marked.",
-        "No cleanup, deletion, moving, or archiving is performed."
+        "The agent does not delete or modify the source after an output failure.",
+        "The final response clearly says that the source was retained.",
+        "No deletion is attempted."
+      ]
+    },
+    {
+      "id": 18,
+      "name": "independent_topics_split_into_multiple_outputs",
+      "prompt": "把 00_Inbox/镜头焦段速查.md 和 00_Inbox/色彩管理故障排查.md 整理成知识笔记。两份材料没有共同的读者问题。",
+      "expected_output": "Creates two independently titled notes in 06_To_Classify because the source units answer separate retrieval questions.",
+      "files": [],
+      "expectations": [
+        "Each output has a coherent standalone title and body.",
+        "The material is not forced into one broad mixed-topic note.",
+        "Both outputs and any required local visual assets validate before source deletion.",
+        "The final response lists both created note paths and the deleted source paths."
+      ]
+    },
+    {
+      "id": 19,
+      "name": "same_topic_conflict_merges_with_context",
+      "prompt": "把 00_Inbox/Resolve 色彩管理旧版笔记.md 和 00_Inbox/Resolve 色彩管理新版笔记.md 整理成知识笔记。两份材料对同一个设置有冲突说明。",
+      "expected_output": "Creates one note that compares, scopes, or corrects the version-specific conflict instead of splitting one reader question into separate notes.",
+      "files": [],
+      "expectations": [
+        "The output makes the version boundary or correction explicit.",
+        "The conflict is not silently discarded.",
+        "The final note remains organized around one retrieval question."
+      ]
+    },
+    {
+      "id": 20,
+      "name": "material_visual_failure_retains_sources",
+      "prompt": "整理 00_Inbox/界面操作截图教程.md。截图是理解步骤的必要证据，但本地化附件失败。",
+      "expected_output": "Does not delete the raw source notes when a material visual cannot be retained in a valid local output asset.",
+      "files": [],
+      "expectations": [
+        "The final response identifies the visual-asset failure.",
+        "No raw source is moved to the Obsidian trash.",
+        "No decorative substitute image is generated."
       ]
     }
   ]

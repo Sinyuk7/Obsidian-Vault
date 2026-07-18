@@ -70,12 +70,12 @@ Filters narrow down results. They can be applied globally or per-view.
 
 ```yaml
 # Single filter
-filters: 'status == "done"'
+filters: 'completed == true'
 
 # AND - all conditions must be true
 filters:
   and:
-    - 'status == "done"'
+    - 'completed == true'
     - 'priority > 3'
 
 # OR - any condition can be true
@@ -225,7 +225,7 @@ views:
     name: "My Table"
     order:
       - file.name
-      - status
+      - completed
       - due_date
     summaries:
       price: Sum
@@ -252,7 +252,7 @@ views:
     name: "Simple List"
     order:
       - file.name
-      - status
+      - completed
 ```
 
 ### Map View
@@ -298,12 +298,12 @@ filters:
 
 formulas:
   days_until_due: 'if(due, (date(due) - today()).days, "")'
-  is_overdue: 'if(due, date(due) < today() && status != "done", false)'
+  is_overdue: 'if(due, date(due) < today() && completed != true, false)'
   priority_label: 'if(priority == 1, "🔴 High", if(priority == 2, "🟡 Medium", "🟢 Low"))'
 
 properties:
-  status:
-    displayName: Status
+  completed:
+    displayName: Completed
   formula.days_until_due:
     displayName: "Days Until Due"
   formula.priority_label:
@@ -314,15 +314,15 @@ views:
     name: "Active Tasks"
     filters:
       and:
-        - 'status != "done"'
+        - 'completed != true'
     order:
       - file.name
-      - status
+      - completed
       - formula.priority_label
       - due
       - formula.days_until_due
     groupBy:
-      property: status
+      property: priority
       direction: ASC
     summaries:
       formula.days_until_due: Average
@@ -331,7 +331,7 @@ views:
     name: "Completed"
     filters:
       and:
-        - 'status == "done"'
+        - 'completed == true'
     order:
       - file.name
       - completed_date
@@ -347,13 +347,13 @@ filters:
 
 formulas:
   reading_time: 'if(pages, (pages * 2).toString() + " min", "")'
-  status_icon: 'if(status == "reading", "📖", if(status == "done", "✅", "📚"))'
+  reading_icon: 'if(finished_date, "✅", if(started_date, "📖", "📚"))'
   year_read: 'if(finished_date, date(finished_date).year, "")'
 
 properties:
   author:
     displayName: Author
-  formula.status_icon:
+  formula.reading_icon:
     displayName: ""
   formula.reading_time:
     displayName: "Est. Time"
@@ -365,16 +365,13 @@ views:
       - cover
       - file.name
       - author
-      - formula.status_icon
-    filters:
-      not:
-        - 'status == "dropped"'
+      - formula.reading_icon
 
   - type: table
     name: "Reading List"
     filters:
       and:
-        - 'status == "to-read"'
+        - 'finished_date == null'
     order:
       - file.name
       - author

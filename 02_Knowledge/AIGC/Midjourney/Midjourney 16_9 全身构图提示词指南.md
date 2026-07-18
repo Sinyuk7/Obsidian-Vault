@@ -11,7 +11,6 @@ tags:
   - prompt-engineering
   - visual-design
   - status/to-classify
-status: to-classify
 created: 2026-05-31
 source_notes:
   - "00_Inbox/Midjorney/Midjourney 构图技巧与全身照.md"

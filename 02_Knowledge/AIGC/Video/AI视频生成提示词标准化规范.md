@@ -7,7 +7,6 @@ tags:
   - AIGC
   - AIGC/AI-Video
   - AIGC/Prompt-Engineering
-status: pending-review
 created: 2026-05-31
 source_titles:
   - AI视频提示词标准化文档生成

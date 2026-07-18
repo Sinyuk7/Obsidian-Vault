@@ -51,7 +51,7 @@ obsidian append file="My Note" content="New line"
 obsidian search query="search term" limit=10
 obsidian daily:read
 obsidian daily:append content="- [ ] New task"
-obsidian property:set name="status" value="done" file="My Note"
+obsidian property:set name="completed" value="true" file="My Note"
 obsidian tasks daily todo
 obsidian tags sort=count counts
 obsidian backlinks file="My Note"

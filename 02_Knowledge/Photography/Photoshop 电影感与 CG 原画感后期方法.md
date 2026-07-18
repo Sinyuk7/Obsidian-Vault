@@ -11,7 +11,6 @@ tags:
   - color-grading
   - film-look
   - CG
-status: curated
 source_titles:
   - Photoshop Cinematic and CG Look Guide
   - Photoshop Cinematic Look Principles

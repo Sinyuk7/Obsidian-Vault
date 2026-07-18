@@ -112,6 +112,8 @@ Do not leave a `question` callout for something that can be resolved quickly fro
 
 Images should be part of the reasoning, not decoration.
 
+When a source visual supports the material, retain it in the finished note instead of replacing it with prose alone.
+
 Good image uses:
 
 - screenshots

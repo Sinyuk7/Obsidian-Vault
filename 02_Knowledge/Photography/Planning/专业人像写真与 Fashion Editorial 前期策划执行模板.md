@@ -8,7 +8,6 @@ tags:
   - editorial
   - pre-production
   - workflow
-status: to-classify
 source:
   - "00_Inbox/专业人像写真与 Fashion Editorial 前期策划的可执行工作流模板.md"
   - "00_Inbox/商业平面写真与时尚大片前期策划工作流深度解析.md"

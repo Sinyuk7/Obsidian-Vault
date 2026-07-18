@@ -1,4 +1,4 @@
 interface:
   display_name: "Obsidian Knowledge Curator"
-  short_description: "Curate specified raw materials into one dense Obsidian note."
-  default_prompt: "使用 $obsidian-knowledge-curator 将指定材料整理为 06_To_Classify 成品笔记；对每个成功处理的 00_Inbox 输入只写入 curation_status、curated_note、curated_at frontmatter 标记，不删除、不移动原始材料，也不在成品中反向引用临时输入。"
+  short_description: "Curate Inbox notes into rich review-ready knowledge notes."
+  default_prompt: "使用 $obsidian-knowledge-curator 将指定的 00_Inbox 原件按独立主题整理为一至多篇 06_To_Classify 成品；保留有价值图片并在全部输出、附件与完整性检查通过后，将原件移入 Obsidian 废纸篓。"
