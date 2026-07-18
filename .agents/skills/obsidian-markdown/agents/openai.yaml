@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Note Authoring"
+  short_description: "Create clear, vault-consistent Obsidian notes"
+  default_prompt: "Use $obsidian-markdown to create or polish this Obsidian note."
