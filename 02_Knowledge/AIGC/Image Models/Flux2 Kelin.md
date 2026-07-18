@@ -19,24 +19,24 @@ last_updated: 2026-03-31
 
 > [!info] Document Metadata
 > Last Updated: ==2026-03-31==
-> Scope: [[FLUX.2 Klein]] [[LoRA]] training in [[Ostris AI Toolkit|AI Toolkit]]
+> Scope: FLUX.2 Klein LoRA training in AI Toolkit
 
 ## Overview ^overview
 
-* Purpose: Distill the full training knowledge for building practical [[FLUX.2 Klein]] [[LoRA|LoRAs]] in [[Ostris AI Toolkit|AI Toolkit]], including model choice, dataset design, parameter logic, evaluation method, troubleshooting, and inference parity.
+* Purpose: Distill the full training knowledge for building practical FLUX.2 Klein LoRAs in AI Toolkit, including model choice, dataset design, parameter logic, evaluation method, troubleshooting, and inference parity.
 * Scope: Covers `FLUX.2 Klein 4B Base` and `FLUX.2 Klein 9B Base` LoRA training in AI Toolkit, the meaning of core settings, Base-specific sampling logic, dataset patterns for character/style/product LoRAs, VRAM planning, and post-training parity rules. Does not cover non-Klein model recipes or detailed installation SOPs.
 
 ## Core Concepts ^core-concepts
 
-* **[[FLUX.2 Klein]]**: A unified model family that supports both text-to-image generation and image editing. In practice, a Klein LoRA can affect both generation and editing workflows depending on dataset and caption design.
+* **FLUX.2 Klein**: A unified model family that supports both text-to-image generation and image editing. In practice, a Klein LoRA can affect both generation and editing workflows depending on dataset and caption design.
 * **Base**: The non-distilled checkpoint intended for fine-tuning and LoRA training. AI Toolkit currently exposes only `FLUX.2 Klein 4B Base` and `FLUX.2 Klein 9B Base` for Klein training.
 * **Distilled behavior**: A low-step inference behavior pattern. It is not the training target in the current AI Toolkit Klein workflow. Treating Base like Distilled during evaluation causes frequent misjudgment.
 * **Size compatibility**: A 4B-trained LoRA only works meaningfully with 4B Base, and a 9B-trained LoRA only works meaningfully with 9B Base. Cross-size testing invalidates evaluation.
 * **Training Steps**: Optimizer update duration. This is the training length control, not the preview denoising step count.
 * **Sample Steps**: Denoising steps used when generating training previews or inference outputs. For Base Klein, low sample steps can make a good LoRA look weak or noisy.
 * **Repeats per image**: The effective training dose per image, approximated by `repeats_per_image ≈ (S × B × G) / N`, where `S` is training steps, `B` is batch size, `G` is gradient accumulation, and `N` is image count. This is a key control variable for character likeness training.
-* **[[Quantization]]**: A memory-saving mechanism used mainly to make 4B/9B training fit into available VRAM and sometimes improve practical stability under tight hardware budgets.
-* **[[Regularization dataset]]**: A small general-domain dataset, usually low-weighted, added to reduce collapse or overfitting for narrow datasets such as a single character or product.
+* **Quantization**: A memory-saving mechanism used mainly to make 4B/9B training fit into available VRAM and sometimes improve practical stability under tight hardware budgets.
+* **Regularization dataset**: A small general-domain dataset, usually low-weighted, added to reduce collapse or overfitting for narrow datasets such as a single character or product.
 * **Inference parity**: Matching training samples at inference requires alignment of the whole pipeline, not only prompt and seed. Base model variant, scheduler semantics, resolution snapping, LoRA application mode, and required control inputs all matter.
 
 ## Consolidated Principles

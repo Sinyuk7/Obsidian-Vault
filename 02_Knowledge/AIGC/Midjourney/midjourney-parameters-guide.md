@@ -132,5 +132,3 @@ Last_Updated: 2026-03-06
 ## Assumptions [Conditional]
 - A1: 本文档基于 Midjourney V7 参数行为编写
 - A2: 所有 URL 需以 .jpg、.png、.gif、.webp 结尾或通过 Midjourney CDN 缩短链接
-
-[[midjourney/v7]] [[parameters]] [[AIGC]] [[reference]]

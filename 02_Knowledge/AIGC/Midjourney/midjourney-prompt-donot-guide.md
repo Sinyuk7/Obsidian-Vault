@@ -254,5 +254,3 @@ Last_Updated: 2026-03-06
   - `Netflix vibe`
 - 例外：具有明确且统一视觉特征的艺术 IP 允许保留（如 `Ghibli style`、`Pixar style`）
 - 机制：模糊的品牌引用会触发随机联想，而非可控的视觉特征提取
-
-[[midjourney/v7]] [[prompt-engineering]] [[AIGC]] [[constraints]]
