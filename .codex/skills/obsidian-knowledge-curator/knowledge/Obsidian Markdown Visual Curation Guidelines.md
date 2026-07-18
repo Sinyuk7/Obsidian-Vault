@@ -11,12 +11,14 @@ Keep:
 - flexible body structure shaped by the material
 - readable rhythm between prose and structured blocks
 - high-signal examples, prompts, parameters, caveats, decisions, and failure fixes
+- faithful compression that removes noise and duplication without deleting unique reusable substance
 - useful images as evidence or visual references
 - source clarity when external material or web search is used
 
 Avoid:
 
 - fixed article templates
+- summary-only rewrites of high-signal source material
 - generic tables that merely rearrange prose
 - callouts around every important sentence
 - image dumps without captions or observations
@@ -31,6 +33,8 @@ The final note should be useful when reopened later, without requiring the raw s
 Required shape remains defined in `SKILL.md`: valid YAML frontmatter, one H1, material-shaped body sections, and `## Sources` only when external sources were actually used.
 
 Prefer short openings that orient the reader quickly. Name sections after the material's real concepts, steps, decisions, problems, or reusable patterns. Do not add sections just because this guide mentions a component.
+
+Compression should improve density, not erase substance. Keep the main flow readable, then move long but reusable examples, prompts, logs, parameter notes, and failure details into folded callouts, tables, code blocks, or appendix-like sections when needed.
 
 ## Component Decision Matrix
 
@@ -284,6 +288,10 @@ Only use non-native syntax when the vault explicitly supports it.
 ## Preflight
 
 - Does every visual or structured block have a job?
+- Does compression remove only noise, duplication, or superseded material?
+- Are unique examples, parameters, prompts, procedures, caveats, decisions, and failure fixes still present or intentionally merged?
+- Does the note avoid durable frontmatter, wikilinks, Markdown links, and Sources entries that point to transient inputs such as `00_Inbox/`?
+- Is the Chinese prose natural, precise, and free of awkward merged phrasing?
 - Are useful source images localized, sized, and explained when needed?
 - Are long prompts, logs, and raw excerpts preserved without dominating the main flow?
 - Are tables used for comparison or structure rather than decoration?

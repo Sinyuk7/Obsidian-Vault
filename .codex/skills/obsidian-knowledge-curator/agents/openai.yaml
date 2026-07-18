@@ -1,4 +1,4 @@
 interface:
   display_name: "Obsidian Knowledge Curator"
-  short_description: "Turn specified raw materials into one polished Obsidian note."
-  default_prompt: "把我指定的一个或多个 raw material 整理成一篇 Obsidian 成品笔记，输出到 06_To_Classify。请按 obsidian-markdown 语法写作，不要清理、删除、移动或归档原始输入。正文结构根据材料重新设计，不套固定章节；保留有价值的例子、参数、步骤、提示词、决策、限制和失败修正，合并重复内容。必要时可以用官方或一手来源做 web search 补充或校正；只有实际使用外部来源时才添加 Sources。只有原材料包含有信息价值的图片、截图、图表或图片链接时才处理图片。"
+  short_description: "Curate specified raw materials into one dense Obsidian note."
+  default_prompt: "使用 $obsidian-knowledge-curator 将指定材料整理为 06_To_Classify 成品笔记；对每个成功处理的 00_Inbox 输入只写入 curation_status、curated_note、curated_at frontmatter 标记，不删除、不移动原始材料，也不在成品中反向引用临时输入。"

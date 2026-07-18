@@ -5,15 +5,18 @@
       "id": 1,
       "name": "specified_technical_article",
       "prompt": "把 00_Inbox/React 19 编译器笔记.md 整理成一篇 Obsidian 成品笔记，必要时补齐最新官方来源。",
-      "expected_output": "Creates one polished Obsidian Markdown note in 06_To_Classify, follows obsidian-markdown syntax, preserves useful examples/procedures/caveats, includes Sources only if external sources are used, and does not delete or move the raw input.",
+      "expected_output": "Creates one polished Obsidian Markdown note in 06_To_Classify, follows obsidian-markdown syntax, preserves useful examples/procedures/caveats while compressing noise, marks the Inbox raw input with the curated output, includes Sources only if external sources are used, and does not delete or move the raw input.",
       "files": [],
       "expectations": [
         "The source file is explicitly specified.",
         "The output is written to 06_To_Classify.",
         "The final note is a refined knowledge page, not a terse outline.",
+        "A concise opening summary is allowed but does not replace reusable body detail.",
         "The note structure is chosen based on the material rather than fixed headings.",
         "Version-dependent, conflicting, or incomplete facts may be checked against official or primary sources.",
         "Sources appears only if external sources are used.",
+        "The finished note does not add 00_Inbox paths to frontmatter, body links, wikilinks, or Sources.",
+        "The Inbox input has curation_status, curated_note, and curated_at frontmatter pointing to the finished note.",
         "No cleanup, deletion, moving, or archiving of raw inputs is performed."
       ]
     },
@@ -40,6 +43,7 @@
         "The output is one main note in 06_To_Classify.",
         "The note can reorganize the original order when that improves readability.",
         "The note preserves useful decisions, caveats, observations, and unresolved private context.",
+        "The note absorbs the specified Inbox materials without creating durable references back to 00_Inbox paths.",
         "No fixed body template is imposed.",
         "The final note follows obsidian-markdown syntax."
       ]
@@ -48,12 +52,15 @@
       "id": 4,
       "name": "long_high_signal_prompt_material",
       "prompt": "把 00_Inbox/Midjourney 提示词工程资料.md 整理成可长期复用的知识笔记。原材料很长，有大量规则、例子、参数、失败修正和版本差异。",
-      "expected_output": "Creates one substantial Midjourney knowledge note in 06_To_Classify that merges duplicates, preserves valuable rules/examples/parameter guidance/failure fixes, optionally adds current official-source corrections when useful, and avoids over-compressing the material.",
+      "expected_output": "Creates one substantial Midjourney knowledge note in 06_To_Classify that merges duplicates, preserves valuable rules/examples/parameter guidance/failure fixes, optionally adds current official-source corrections when useful, and avoids information-loss compression.",
       "files": [],
       "expectations": [
         "The default output is one main note in 06_To_Classify.",
         "Long high-signal inputs are not reduced to a short outline unless the source is genuinely low signal.",
+        "The agent preserves unique reusable source units and compresses only duplicates, noise, boilerplate, or superseded claims.",
+        "The output does not use the temporary 00_Inbox input path as provenance in frontmatter, body links, or Sources.",
         "Examples, prompt templates, parameters, and failure corrections are retained or intentionally merged.",
+        "Long but valuable examples may be kept in folded callouts, tables, code blocks, or appendix-like sections instead of being deleted.",
         "Version differences and current-source corrections are explicit when search is used.",
         "Visual or structured aids such as parameter matrices, workflow diagrams, callouts, or before/after prompt examples are allowed when useful but not required.",
         "Repeated content is consolidated without losing important details."
@@ -97,6 +104,7 @@
         "The final note is written to 06_To_Classify.",
         "No web search is performed when it is not useful.",
         "Sources is omitted when no external sources are used.",
+        "The specified 00_Inbox input is not treated as an external source and is not cited in Sources or frontmatter.",
         "The note can still include frontmatter, H1, and substantive body sections."
       ]
     },
@@ -110,7 +118,9 @@
         "The final note is written to 06_To_Classify.",
         "Official or primary sources are preferred for version-sensitive claims.",
         "Conflicting or outdated claims are corrected instead of left as generic uncertainty.",
+        "External findings are incorporated into the note as corrected facts, constraints, comparisons, or caveats rather than merely appended as links.",
         "Sources appears because external sources were used.",
+        "Sources contains only the official or primary external references used, not the temporary 00_Inbox input file.",
         "The result remains a personal knowledge note rather than an academic report."
       ]
     },
@@ -125,19 +135,22 @@
         "The agent reads or follows obsidian-markdown as the syntax contract.",
         "Frontmatter is valid YAML.",
         "Only useful properties are added; no large invented schema is required.",
+        "Frontmatter does not include source, sources, origin, or related values pointing to 00_Inbox raw inputs.",
         "Internal links and embeds use Obsidian syntax."
       ]
     },
     {
       "id": 10,
-      "name": "user_requests_cleanup_out_of_scope",
+      "name": "user_requests_cleanup_is_separate",
       "prompt": "把 00_Inbox/Stable Diffusion 参数笔记.md 整理成成品笔记，整理完顺手把原文件删掉。",
-      "expected_output": "Creates the note in 06_To_Classify but refuses or defers deletion because cleanup is outside this skill; final response reports the created note and says raw input was left untouched.",
+      "expected_output": "Creates the note in 06_To_Classify, marks the Inbox source with the curated output, but does not delete it because cleanup is a separate user-confirmed operation.",
       "files": [],
       "expectations": [
         "The final note is written to 06_To_Classify.",
         "The raw input is not deleted, moved, renamed, archived, or cleaned up.",
-        "The final response clearly reports that cleanup was not performed by this skill.",
+        "The raw input is marked with curation_status: curated, curated_note, and curated_at after output validation.",
+        "The final note does not preserve a durable link to the soon-to-be-deleted 00_Inbox raw input.",
+        "The final response lists the marked Inbox source and clearly reports that cleanup was not performed.",
         "The curation output is still completed if the source path is specified."
       ]
     },
@@ -150,6 +163,7 @@
       "expectations": [
         "The output goes to 06_To_Classify even if the user suggests 02_Knowledge.",
         "The note is not classified into 01_Projects, 02_Knowledge, or 03_Resources by this skill.",
+        "The Inbox input is marked with curation_status, curated_note, and curated_at after output validation.",
         "The final response can mention that later human classification is expected.",
         "No cleanup is performed."
       ]
@@ -164,6 +178,77 @@
         "The skill does not apply to folder reorganization or note moving tasks.",
         "No curated note is created in 06_To_Classify.",
         "The task should be handled by a vault maintenance workflow instead."
+      ]
+    },
+    {
+      "id": 13,
+      "name": "faithful_compression_preserves_unique_units",
+      "prompt": "把 00_Inbox/摄影布光课程摘录.md 整理成一篇可复用的 Obsidian 成品笔记。里面有很多重复口语、闲聊和转写错误，但也有具体灯位、参数、失败案例和现场判断。",
+      "expected_output": "Creates one dense but readable note in 06_To_Classify that compresses repeated low-value material while preserving unique lighting setups, parameters, examples, failure cases, and practical judgments.",
+      "files": [],
+      "expectations": [
+        "The final note is shorter and cleaner than the raw transcript when the source contains repeated chatter or capture noise.",
+        "The agent does not preserve filler merely to avoid compression.",
+        "Unique high-value units such as setup diagrams, parameters, failure modes, practical caveats, and examples are retained or intentionally merged.",
+        "Long reusable details are moved into appropriate tables, folded callouts, code blocks, diagrams, or appendix-like sections instead of being deleted.",
+        "The output does not cite 00_Inbox transcript paths as durable note provenance.",
+        "The note remains usable without reopening the raw source."
+      ]
+    },
+    {
+      "id": 14,
+      "name": "language_polish_and_search_enrichment",
+      "prompt": "把 00_Inbox/粗糙翻译-API参数说明.md 整理成一篇 Obsidian 成品笔记。原文有机器翻译腔、几处参数名可能过时、还有一些上下文缺失，请必要时查官方来源补齐。",
+      "expected_output": "Creates one polished note in 06_To_Classify with natural Chinese prose, corrected or contextualized version-sensitive claims, concise Sources when official references are used, and improved explanatory value beyond a plain summary.",
+      "files": [],
+      "expectations": [
+        "The final Chinese prose is natural, precise, and free of obvious machine-translation grammar.",
+        "The agent rewrites awkward source phrasing instead of preserving it mechanically.",
+        "Official or primary sources are used when they materially resolve outdated parameter names, version behavior, or missing context.",
+        "Search findings are integrated into the main explanation as corrections, constraints, comparisons, or caveats.",
+        "Temporary 00_Inbox input paths are not included in frontmatter, body links, wikilinks, or Sources.",
+        "The final note improves the source's accuracy and usability rather than only shortening it."
+      ]
+    },
+    {
+      "id": 15,
+      "name": "inbox_inputs_are_transient_not_sources",
+      "prompt": "把 00_Inbox/重复资料-A.md 和 00_Inbox/重复资料-B.md 整理成一篇成品笔记。Inbox 原文整理后会删除，不要在成品里引用它们。",
+      "expected_output": "Creates one polished note in 06_To_Classify that uses the Inbox files as transient raw material while omitting 00_Inbox paths from frontmatter, body links, wikilinks, and Sources.",
+      "files": [],
+      "expectations": [
+        "The final note is written to 06_To_Classify.",
+        "The note can use and merge the content from both specified Inbox files.",
+        "The note does not include frontmatter fields such as source, sources, origin, or related that point to 00_Inbox files.",
+        "The note does not add Markdown links or wikilinks to 00_Inbox files.",
+        "Sources is omitted unless external web or primary sources were actually used, and never lists the Inbox inputs.",
+        "Both Inbox inputs are marked with curation_status, curated_note, and curated_at after output validation.",
+        "The final response may mention the created note path and marked inputs but does not claim source cleanup was performed."
+      ]
+    },
+    {
+      "id": 16,
+      "name": "existing_inbox_marker_prevents_duplicate_curation",
+      "prompt": "把 00_Inbox/已整理的笔记.md 再整理成一篇成品笔记。该文件的 frontmatter 已有 curation_status: curated 和 curated_note。",
+      "expected_output": "Verifies the existing curated_note and asks for direction instead of replacing the marker or creating a duplicate output.",
+      "files": [],
+      "expectations": [
+        "The agent checks whether the existing curated_note resolves.",
+        "The existing curation_status, curated_note, and curated_at values are not overwritten.",
+        "No duplicate note is created without user direction.",
+        "No cleanup, deletion, moving, or archiving is performed."
+      ]
+    },
+    {
+      "id": 17,
+      "name": "failed_curation_does_not_mark_inbox_source",
+      "prompt": "把 00_Inbox/损坏的输入.md 整理成成品笔记，但写入 06_To_Classify 失败。",
+      "expected_output": "Reports the failed output and leaves the Inbox source unmarked, so it cannot be mistaken for a cleanup candidate.",
+      "files": [],
+      "expectations": [
+        "The agent does not add curation_status, curated_note, or curated_at to the source after an output failure.",
+        "The final response clearly says that the source was not marked.",
+        "No cleanup, deletion, moving, or archiving is performed."
       ]
     }
   ]
